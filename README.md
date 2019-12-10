@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# fbclone
+>>>>>>> ee6ed5b4a26bb78125135a537d2cbfb7ea88b4d6
