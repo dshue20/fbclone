@@ -15,6 +15,10 @@ export default class Feed extends React.Component {
     render() {
         return (
             <div>
+                <header id="feed-header">
+                    <img className="fb-icon" src={window.fb_icon}/>
+                    <input className="feed-search" type="text" placeholder=" Search"/>
+                </header>
                 <h1>This is the feed</h1>
                 <button onClick={this.props.logout}>Log Out</button>
             </div>

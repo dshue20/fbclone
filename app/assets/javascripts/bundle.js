@@ -249,7 +249,16 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the feed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        id: "feed-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "fb-icon",
+        src: window.fb_icon
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "feed-search",
+        type: "text",
+        placeholder: " Search"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the feed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logout
       }, "Log Out"));
     }
@@ -425,8 +434,8 @@ function (_React$Component) {
         password: this.state.password,
         birthday: this.state.month + ' ' + this.state.day + ', ' + this.state.year,
         gender: this.state.gender
-      });
-      debugger;
+      }); //debugger;
+
       this.props.signup(user);
 
       if (!this.props.errors) {
@@ -457,13 +466,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _React$createElement, _React$createElement2, _React$createElement3, _React$createElement4;
+
       var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      console.log(window.aa_logo);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         id: "login-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "login-logo",
-        src: "facebook_logo.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        id: "login-logo"
+      }, "fakebook"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "login-form",
         onSubmit: this.handleLogin
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -476,32 +487,76 @@ function (_React$Component) {
         className: "login-input-label"
       }, "Password", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "login-input",
-        type: "text",
+        type: "password",
         onChange: this.update('password')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "login-button",
         type: "submit"
-      }, "Log In"))), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        id: "welcome-description"
-      }, "Connect with friends and the world around you on Fakebook."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "Log In"))), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "login-light-blue"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "login-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "login-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "login-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Connect with friends and the "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "world around you on Fakebook.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "login-left-icons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-left-icon-section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "login-left-icon",
+        src: "https://scontent-sjc3-1.xx.fbcdn.net/v/t39.2365-6/32964924_188362901982436_5189181917978689536_n.png?_nc_cat=1&_nc_ohc=P-30UxsWKjcAQkBW4ROHfAe9UsprQkYxnFntTXdGpQjK5PYc-5ricTXzA&_nc_ht=scontent-sjc3-1.xx&oh=d05f98d60fad5110d7c44926ec1cbfb8&oe=5EAC13A3"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-left-icon-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "login-left-text-dark"
+      }, "See photos and updates "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "login-left-text-light"
+      }, "from friends in News Feed."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-left-icon-section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "login-left-icon",
+        src: "https://scontent-sjc3-1.xx.fbcdn.net/v/t39.2365-6/32967637_1400301410075884_2994305350271762432_n.png?_nc_cat=1&_nc_ohc=55MOE790WrgAQlzSXIZm0hB0Kqy0a3gilPB_HxMgNeAhcBlm-f3hKIf8Q&_nc_ht=scontent-sjc3-1.xx&oh=78490146ecc39b1c732d480cf30685b1&oe=5EAF00B0"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-left-icon-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "login-left-text-dark"
+      }, "Share what's new "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "login-left-text-light"
+      }, "in your life on your Timeline."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-left-icon-section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "login-left-icon",
+        src: "https://scontent-sjc3-1.xx.fbcdn.net/v/t39.2365-6/33137320_1687624661315903_5362007326045765632_n.png?_nc_cat=1&_nc_ohc=QSxCyz3mrSsAQkUyUktobIY2X_PB9VgkdFWc324c3kLcWRP0nSLpOsUoQ&_nc_ht=scontent-sjc3-1.xx&oh=8975a9550d54267243ef991b20a64cd9&oe=5E787E05"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-left-icon-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "login-left-text-dark"
+      }, "Find more "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "login-left-text-light"
+      }, "of what you're looking for with Facebook Search."))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "signup-form",
         onSubmit: this.handleSignup
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Sign Up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It's quick and easy."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "signup"
+      }, "Sign Up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "quick-easy"
+      }, "It's quick and easy."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
         type: "text",
-        onChange: this.update('fname'),
-        placeholder: "First name"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "signup-input-text"
+      }, _defineProperty(_React$createElement, "className", "signup-name-input-text"), _defineProperty(_React$createElement, "onChange", this.update('fname')), _defineProperty(_React$createElement, "placeholder", "   First name"), _React$createElement)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement2 = {
         type: "text",
-        onChange: this.update('lname'),
-        placeholder: "Last name"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "signup-input-text"
+      }, _defineProperty(_React$createElement2, "className", "signup-name-input-text"), _defineProperty(_React$createElement2, "onChange", this.update('lname')), _defineProperty(_React$createElement2, "placeholder", "   Last name"), _React$createElement2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement3 = {
         type: "text",
-        onChange: this.update('email'),
-        placeholder: "Mobile number or email"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "signup-input-text"
+      }, _defineProperty(_React$createElement3, "className", "signup-input-other-text"), _defineProperty(_React$createElement3, "onChange", this.update('email')), _defineProperty(_React$createElement3, "placeholder", "   Mobile number or email"), _React$createElement3)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement4 = {
         type: "text",
-        onChange: this.update('password'),
-        placeholder: "New password"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Birthday:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "signup-input-text"
+      }, _defineProperty(_React$createElement4, "className", "signup-input-other-text"), _defineProperty(_React$createElement4, "onChange", this.update('password')), _defineProperty(_React$createElement4, "placeholder", "   New password"), _React$createElement4)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "signup-bday-gender"
+      }, "Birthday"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.update('month')
       }, MONTHS.map(function (month) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -522,25 +577,131 @@ function (_React$Component) {
           key: year,
           value: year
         }, year);
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Gender: Female", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "signup-bday-gender"
+      }, "Gender"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "signup-gender-options"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "gender-plus-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
+        className: "signup-gender-option",
         name: "gender",
         value: "Female",
         onChange: this.update('gender')
-      }), "Male", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), "Female"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "gender-plus-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
+        className: "signup-gender-option",
         name: "gender",
         value: "Male",
         onChange: this.update('gender')
-      }), "Custom", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), "Male"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "gender-plus-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
+        className: "signup-gender-option",
         name: "gender",
         value: "Custom",
         onChange: this.update('gender')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        value: "Sign Up"
-      })));
+      }), "Custom"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "signup-submit",
+        type: "submit"
+      }, "Sign Up")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "signup-languages"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "signup-bottom-link"
+      }, "English (US)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Ruby"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Rails"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Javascript"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "React"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Python"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "C++")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "signup-bottom-links"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "I"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Don't"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Know"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "What"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "To"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Do"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "With"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "All"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "These"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Random"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Links"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "That"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Go"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "On"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "The"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Bottom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Of"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "The"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Facebook"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "signup-bottom-link",
+        href: "#"
+      }, "Page")));
     }
   }]);
 
@@ -717,13 +878,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var sessionErrorsReducer = function sessionErrorsReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      return null;
+      return state;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ERRORS"]:
       return action.errors;

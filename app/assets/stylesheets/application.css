@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+ /* @font-face {
+     font-family: Klavika;
+     src: url("https://ufonts.com/q469754");
+ }; */
+
+ @font-face {
+     font-family: "Klavika";
+     src: url(/assets/klavika/klavika-medium.otf);
+     font-weight: bold;
+     font-style: normal;
+ };
+
+ @font-face {
+    font-family: "Klavika";
+    src: url(/assets/klavika/klavika-light.otf);
+    font-weight: normal;
+    font-style: normal;
+};
