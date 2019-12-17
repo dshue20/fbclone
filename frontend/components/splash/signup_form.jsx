@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 
-export default class LoginForm extends React.Component {
+export default class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,29 +16,50 @@ export default class LoginForm extends React.Component {
             day: "",
             year: ""
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        //debugger;
+        this.handleLogin = this.handleLogin.bind(this);
+        this.handleSignup = this.handleSignup.bind(this);
     }
 
-    handleSubmit(e) {
+    handleLogin(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        const user = Object.assign({}, {email: this.state.email, password: this.state.password});
         this.props.login(user);
         if (!this.props.errors) {
             this.props.history.push("/");
         }
     }
 
+    handleSignup(e) {
+        e.preventDefault();
+        const user = Object.assign({}, {
+            fname: this.state.fname,
+            lname: this.state.lname,
+            email: this.state.email,
+            password: this.state.password,
+            birthday: this.state.month + ' ' + this.state.day + ', ' + this.state.year,
+            gender: this.state.gender
+        });
+        debugger;
+        this.props.signup(user);
+        if (!this.props.errors) {
+            this.props.history.push("/");
+        }
+    }
+
     update(property) {
-        return e => this.setState({
-            [property]: e.currentTarget.value
-        })
+        return e => {
+            this.setState({
+                [property]: e.currentTarget.value
+            })
+            //debugger;
+        }
     }
 
     renderErrors() {
         return(
           <ul>
-            {Object.keys(this.props.errors).map(error => this.props.errors[error])}
+            {Object.keys(this.props.errors).map(
+                (error, idx) => <li key={idx}>{this.props.errors[error]}</li>)}
           </ul>
         );
       }
@@ -47,9 +68,28 @@ export default class LoginForm extends React.Component {
         const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return (
             <div>
+                <header id="login-header">
+                    <img id="login-logo" src="facebook_logo.png"/>
+                    <form id="login-form" onSubmit={this.handleLogin}>
+                        <label className="login-input-label">
+                            Email or Phone
+                            <input className="login-input" type="text" onChange={this.update('email')}/> 
+                        </label>
+
+                        <label className="login-input-label">
+                            Password
+                            <input className="login-input" type="text" onChange={this.update('password')}/>
+                        </label>
+                        
+                        <button id="login-button" type="submit">Log In</button>
+                    </form>
+                </header>
+
                 {this.renderErrors()}
 
-                <form onSubmit={this.handleSubmit}>
+                <h2 id="welcome-description">Connect with friends and the world around you on Fakebook.</h2>
+
+                <form onSubmit={this.handleSignup}>
                     <h1>Sign Up</h1>
                     <p>It's quick and easy.</p>
                     <input type="text" onChange={this.update('fname')} placeholder="First name"/>
@@ -59,28 +99,28 @@ export default class LoginForm extends React.Component {
                     
                     <label>
                         Birthday:
-                        <select>
+                        <select onChange={this.update('month')}>
                             {MONTHS.map(month => 
-                                <option value={month} onChange={this.update('month')}>{month}</option>)}
+                                <option key={month} value={month}>{month}</option>)}
                         </select>
-                        <select>
+                        <select onChange={this.update('day')}>
                             {[...Array(32).keys()].slice(1).map(
-                                day => <option value={day} onChange={this.update('day')}>{day}</option>)}
+                                day => <option key={day} value={day}>{day}</option>)}
                         </select>
-                        <select>
+                        <select onChange={this.update('year')}>
                             {[...Array(2020).keys()].slice(1905).map(
-                                day => <option value={year} onChange={this.update('year')}>{day}</option>)}
+                                year => <option key={year} value={year}>{year}</option>)}
                         </select>
                     </label>
 
                     <label>
                         Gender: 
-                        <input type="radio" name="gender" value="Male" onChange={this.update('gender')} checked />
-                        <input type="radio" name="gender" value="Female" onChange={this.update('gender')}/>
-                        <input type="radio" name="gender" value="Custom" onChange={this.update('gender')}/>
+                        Female<input type="radio" name="gender" value="Female" onChange={this.update('gender')}/>
+                        Male<input type="radio" name="gender" value="Male" onChange={this.update('gender')}/>
+                        Custom<input type="radio" name="gender" value="Custom" onChange={this.update('gender')}/>
                     </label>
 
-                    <input type="submit" value="Submit"/>
+                    <input type="submit" value="Sign Up"/>
                 </form>
             </div>
         )
