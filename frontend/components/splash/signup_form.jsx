@@ -82,7 +82,7 @@ export default class SignupForm extends React.Component {
                             <input className="login-input" type="password" onChange={this.update('password')}/>
                         </label>
                         
-                        <button id="login-button" type="submit">Log In</button>
+                        <button className="login-button" type="submit">Log In</button>
                     </form>
                 </header>
 

@@ -258,9 +258,51 @@ function (_React$Component) {
         className: "feed-search",
         type: "text",
         placeholder: " Search"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the feed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "feed-search-icon",
+        src: window.feed_search
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "right-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#",
+        className: "right-header-text"
+      }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#",
+        className: "right-header-text"
+      }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#",
+        className: "right-header-text"
+      }, "Create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "feed-right-header-icon",
+        src: window.friends_icon
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "feed-right-header-icon",
+        src: window.messenger_icon
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "feed-right-header-icon",
+        src: window.notif_icon
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "feed-right-header-icon",
+        src: window.help_icon
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "feed-right-header-icon",
+        src: window.dropdown_icon
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "login-button",
         onClick: this.props.logout
-      }, "Log Out"));
+      }, "Log Out"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the feed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi ", this.props.user.fname));
     }
   }]);
 
@@ -490,7 +532,7 @@ function (_React$Component) {
         type: "password",
         onChange: this.update('password')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "login-button",
+        className: "login-button",
         type: "submit"
       }, "Log In"))), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "login-light-blue"

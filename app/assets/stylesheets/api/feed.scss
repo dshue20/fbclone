@@ -1,19 +1,47 @@
 // 1% = 10px???
 
 #feed-header {
-    background-color: #405D9A;
+    background-color: #4267b2;
     display: flex;
     align-items: center;
 }
 
 .fb-icon {
     height: 45px;
-    margin-left: 21%;
+    margin-left: 14.6%;
 }
 
 .feed-search {
     height: 19px;
     font-size: 14px;
-    width: 40%;
+    width: 28%;
     border-radius: 3px;
+}
+
+.feed-search-icon {
+    height: 19px;
+    width: 19px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+#right-header {
+    display: flex;
+    align-items: center;
+    width: 52%;
+    margin-left: 12%;
+    margin-right: 15%;
+}
+
+.feed-right-header-icon {
+    height: 41px;
+    width: 41px;
+}
+
+.right-header-text {
+    color: white;
+    margin-right: 24px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 14px;
 }
