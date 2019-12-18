@@ -45,3 +45,79 @@
     font-family: Arial;
     font-size: 14px;
 }
+
+#main-feed {
+    display: flex;
+    background-color: #edf0f5;
+}
+
+#main-feed > section {
+    border: 1px solid red;
+    margin-top: 10px;
+}
+
+#feed-left {
+    width: 13%;
+    margin-left: 15%;
+    font-size: 16px;
+}
+
+#feed-center {
+    width: 35%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#feed-right {
+    width: 22%;
+}
+
+#news-icon {
+    color: #0084DB;
+}
+
+#messenger-icon, #groups-icon {
+    color: #0084FF;
+}
+
+#video-icon, #events-icon {
+    color: #c4302b;
+}
+
+.fb-icon-left {
+    height: 16px;
+}
+
+#pages-icon {
+    color: #F5BB3E;
+}
+
+#fundraiser-icon {
+    color: gold;
+}
+
+.feed-left-icon, #feed-left-fb-icon {
+    margin-right: 5px;
+}
+
+.feed-left-text {
+    margin-bottom: 11px;
+}
+
+#feed-left-name {
+    margin-bottom: 15px;
+    margin-left: 22px;
+    font-weight: bold;
+}
+
+#feed-left-explore {
+    margin: 20px 0 20px 0;
+    color: #616770;
+    font-weight: bold;
+}
+
+#feed-left-see-more {
+    color: #385898;
+    display: block;
+    text-align: center;
+}
