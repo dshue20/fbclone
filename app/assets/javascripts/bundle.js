@@ -204,9 +204,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Feed; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _splash_languages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../splash/languages */ "./frontend/components/splash/languages.jsx");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -224,6 +225,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -258,9 +260,9 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         id: "feed-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
+        href: "#",
+        className: "fb-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "fb-icon",
         src: window.fb_icon
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "feed-search",
@@ -321,26 +323,26 @@ function (_React$Component) {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
         className: "feed-left-icon",
         id: "news-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faNewspaper"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faNewspaper"]
       }), "News Feed")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
         className: "feed-left-icon",
         id: "messenger-icon",
-        icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faFacebookMessenger"]
+        icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookMessenger"]
       }), "Messenger")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
         className: "feed-left-icon",
         id: "video-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faVideo"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faVideo"]
       }), "Watch")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "feed-left-text",
         id: "feed-left-explore"
@@ -356,34 +358,34 @@ function (_React$Component) {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
         className: "feed-left-icon",
         id: "groups-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faUsers"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faUsers"]
       }), "Groups")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
         className: "feed-left-icon",
         id: "pages-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faFlag"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faFlag"]
       }), "Pages")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
         className: "feed-left-icon",
         id: "fundraiser-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faCoins"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCoins"]
       }), "Fundraisers")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
         className: "feed-left-icon",
         id: "events-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faCalendarAlt"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCalendarAlt"]
       }), "Events")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         id: "feed-left-see-more",
         className: "feed-left-text",
@@ -392,7 +394,29 @@ function (_React$Component) {
         id: "feed-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the feed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi ", this.props.user.fname)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "feed-right"
-      })));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "feed-right-languages"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "English (US)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Ruby"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Rails"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Javascript"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "React"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Python"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "C++"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "feed-right-fb-c"
+      }, "Fakebook \xA9 2019"))));
     }
   }]);
 
@@ -470,6 +494,41 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/splash/languages.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/splash/languages.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var languages = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "English (US)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "Ruby"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "Rails"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "Javascript"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "React"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "Redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "Python"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  href: "#"
+}, "C++"));
+/* harmony default export */ __webpack_exports__["default"] = (languages);
+
+/***/ }),
+
 /***/ "./frontend/components/splash/signup_form.jsx":
 /*!****************************************************!*\
   !*** ./frontend/components/splash/signup_form.jsx ***!
@@ -483,6 +542,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _languages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./languages */ "./frontend/components/splash/languages.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -510,6 +570,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -598,10 +659,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _React$createElement, _React$createElement2, _React$createElement3, _React$createElement4;
-
       var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      console.log(window.aa_logo);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         id: "login-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -674,21 +732,29 @@ function (_React$Component) {
         id: "signup"
       }, "Sign Up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: "quick-easy"
-      }, "It's quick and easy."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
+      }, "It's quick and easy."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "signup-input-text"
-      }, _defineProperty(_React$createElement, "className", "signup-name-input-text"), _defineProperty(_React$createElement, "onChange", this.update('fname')), _defineProperty(_React$createElement, "placeholder", "   First name"), _React$createElement)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement2 = {
+        className: "signup-name-input-text",
+        onChange: this.update('fname'),
+        placeholder: "First name"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "signup-input-text"
-      }, _defineProperty(_React$createElement2, "className", "signup-name-input-text"), _defineProperty(_React$createElement2, "onChange", this.update('lname')), _defineProperty(_React$createElement2, "placeholder", "   Last name"), _React$createElement2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement3 = {
+        className: "signup-name-input-text",
+        onChange: this.update('lname'),
+        placeholder: "Last name"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "signup-input-text"
-      }, _defineProperty(_React$createElement3, "className", "signup-input-other-text"), _defineProperty(_React$createElement3, "onChange", this.update('email')), _defineProperty(_React$createElement3, "placeholder", "   Mobile number or email"), _React$createElement3)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement4 = {
-        type: "text",
-        className: "signup-input-text"
-      }, _defineProperty(_React$createElement4, "className", "signup-input-other-text"), _defineProperty(_React$createElement4, "onChange", this.update('password')), _defineProperty(_React$createElement4, "placeholder", "   New password"), _React$createElement4)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "signup-input-other-text",
+        onChange: this.update('email'),
+        placeholder: "Mobile number or email"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "password",
+        className: "signup-input-other-text",
+        onChange: this.update('password'),
+        placeholder: "New password"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "signup-bday-gender"
-      }, "Birthday"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Birthday"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.update('month')
       }, MONTHS.map(function (month) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -709,9 +775,9 @@ function (_React$Component) {
           key: year,
           value: year
         }, year);
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "signup-bday-gender"
-      }, "Gender"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Gender"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "signup-gender-options"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "gender-plus-text"
@@ -740,100 +806,7 @@ function (_React$Component) {
       }), "Custom"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "signup-submit",
         type: "submit"
-      }, "Sign Up")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        className: "signup-languages"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "signup-bottom-link"
-      }, "English (US)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Ruby"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Rails"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Javascript"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "React"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Python"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "C++")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        className: "signup-bottom-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "I"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Don't"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Know"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "What"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "To"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Do"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "With"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "All"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "These"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Random"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Links"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "That"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Go"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "On"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "The"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Bottom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Of"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "The"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Facebook"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "signup-bottom-link",
-        href: "#"
-      }, "Page")));
+      }, "Sign Up")))));
     }
   }]);
 
@@ -1111,7 +1084,7 @@ var usersReducer = function usersReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/root_reducer */ "./frontend/reducers/root_reducer.js");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_3__);
 
@@ -1121,7 +1094,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_4__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_3___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_3___default.a));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

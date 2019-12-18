@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import languages from './languages';
 
 
 export default class SignupForm extends React.Component {
@@ -66,7 +67,6 @@ export default class SignupForm extends React.Component {
 
     render() {
         const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        console.log(window.aa_logo);
         return (
             <div>
                 <header id="login-header">
@@ -123,16 +123,16 @@ export default class SignupForm extends React.Component {
                         <form id="signup-form" onSubmit={this.handleSignup}>
                             <h1 id="signup">Sign Up</h1>
                             <p id="quick-easy">It's quick and easy.</p>
-                            <input type="text" className="signup-input-text" className="signup-name-input-text" onChange={this.update('fname')} placeholder="   First name"/>
-                            <input type="text" className="signup-input-text" className="signup-name-input-text" onChange={this.update('lname')} placeholder="   Last name"/>
+                            <input type="text" className="signup-name-input-text" onChange={this.update('fname')} placeholder="First name"/>
+                            <input type="text" className="signup-name-input-text" onChange={this.update('lname')} placeholder="Last name"/>
                             <br/>
-                            <input type="text" className="signup-input-text" className="signup-input-other-text" onChange={this.update('email')} placeholder="   Mobile number or email"/>
+                            <input type="text" className="signup-input-other-text" onChange={this.update('email')} placeholder="Mobile number or email"/>
                             <br/>
-                            <input type="text" className="signup-input-text" className="signup-input-other-text" onChange={this.update('password')} placeholder="   New password"/>
+                            <input type="password" className="signup-input-other-text" onChange={this.update('password')} placeholder="New password"/>
                             <br/>
 
-                            <label>
-                                <p className="signup-bday-gender">Birthday</p>
+                            <label className="signup-bday-gender">
+                                <p>Birthday</p>
                                 <select onChange={this.update('month')}>
                                     {MONTHS.map(month => 
                                         <option key={month} value={month}>{month}</option>)}
@@ -148,8 +148,8 @@ export default class SignupForm extends React.Component {
                             </label>
                             <br/>
 
-                            <label>
-                                <p className="signup-bday-gender">Gender</p>
+                            <label className="signup-bday-gender">
+                                <p>Gender</p>
                                 <section id="signup-gender-options">
                                     <div className="gender-plus-text">
                                         <input type="radio" className="signup-gender-option" name="gender" value="Female" onChange={this.update('gender')}/>Female
@@ -169,20 +169,11 @@ export default class SignupForm extends React.Component {
                     </section>
                 </section>
 
-                <section className="signup-languages">
-                    <p className="signup-bottom-link">English (US)</p>
-                    <a className="signup-bottom-link" href="#">Ruby</a>
-                    <a className="signup-bottom-link" href="#">Rails</a>
-                    <a className="signup-bottom-link" href="#">Java</a>
-                    <a className="signup-bottom-link" href="#">Javascript</a>
-                    <a className="signup-bottom-link" href="#">React</a>
-                    <a className="signup-bottom-link" href="#">Redux</a>
-                    <a className="signup-bottom-link" href="#">Python</a>
-                    <a className="signup-bottom-link" href="#">C</a>
-                    <a className="signup-bottom-link" href="#">C++</a>
-                </section>
+                {/* <div id="signup-languages">
+                    {languages}
+                </div> */}
 
-                <section className="signup-bottom-links">
+                {/* <section className="signup-bottom-links">
                     <a className="signup-bottom-link" href="#">I</a>
                     <a className="signup-bottom-link" href="#">Don't</a>
                     <a className="signup-bottom-link" href="#">Know</a>
@@ -203,7 +194,7 @@ export default class SignupForm extends React.Component {
                     <a className="signup-bottom-link" href="#">The</a>
                     <a className="signup-bottom-link" href="#">Facebook</a>
                     <a className="signup-bottom-link" href="#">Page</a>
-                </section>
+                </section> */}
             </div>
         )
     }

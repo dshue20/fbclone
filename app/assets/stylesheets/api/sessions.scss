@@ -110,6 +110,7 @@
 .signup-name-input-text {
     margin-bottom: 2%;
     margin-right: 2%;
+    padding-left: 10px;
     width: 194px;
     height: 35px;
     font-size: 18px;
@@ -118,18 +119,27 @@
 
 .signup-input-other-text {
     margin-bottom: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 408px;
     height: 35px;
     font-size: 18px;
     border-radius: 5px;
 }
 
-.signup-bday-gender {
+.signup-bday-gender > p {
     color: #90949c;
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 17px;
     font-weight: bold;
+}
+
+.signup-bday-gender > select {
+    font-size: 13px;
+    height: 30px;
+    padding: 5px;
+    background-color: white;
 }
 
 #signup-gender-options {
@@ -154,7 +164,7 @@
     border-color: #3b6e22 #3b6e22 #2c5115;
 }
 
-.signup-languages, .signup-bottom-links {
+#signup-languages > section, .signup-bottom-links {
     display: flex;
     height: 12vh;
     border-bottom: 1px solid lightgray;
@@ -168,7 +178,7 @@
     align-items: flex-start;
 }
 
-.signup-bottom-link {
+#signup-languages > section > *, .signup-bottom-link {
     color: #385898;
     margin: 10px 5px 8px 5px;
     font-size: 14px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import languages from '../splash/languages';
 import { faNewspaper, faVideo, faUsers, faFlag, faCoins, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +20,7 @@ export default class Feed extends React.Component {
         return (
             <div>
                 <header id="feed-header">
-                    <a href="#"><img className="fb-icon" src={window.fb_icon}/></a>
+                    <a href="#" className="fb-icon"><img src={window.fb_icon}/></a>
                     <input className="feed-search" type="text" placeholder=" Search"/>
                     <a href="#"><img className="feed-search-icon" src={window.feed_search}/></a>
                     <section id="right-header">
@@ -56,7 +57,23 @@ export default class Feed extends React.Component {
                     </section>
 
                     <section id="feed-right">
-                    
+                        <div id="feed-right-languages">
+                            <section>
+                                <p>English (US)</p>
+                                <a href="#">Ruby</a>
+                                <a href="#">Rails</a>
+                                <br/>
+                                <a href="#">Java</a>
+                                <a href="#">Javascript</a>
+                                <a href="#">React</a>
+                                <a href="#">Redux</a>
+                                <br/>
+                                <a href="#">Python</a>
+                                <a href="#">C</a>
+                                <a href="#">C++</a>
+                            </section>
+                        </div>
+                        <p id="feed-right-fb-c">Fakebook © 2019</p>
                     </section>
                 </section>
             </div>
