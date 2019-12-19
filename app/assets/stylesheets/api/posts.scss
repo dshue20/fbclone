@@ -1,0 +1,24 @@
+#post-form > input {
+    width: 37vh;
+    padding: 5px 5px 80px 10px;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+#post-form > button {
+    border-radius: 5px;
+    width: 39vh;
+    height: 4vh;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    background-color: #4267b2;
+}
+
+.individual-post {
+    display: block;
+    width: 39vh;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+}

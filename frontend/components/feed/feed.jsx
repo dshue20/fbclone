@@ -1,5 +1,7 @@
 import React from 'react';
 import languages from '../splash/languages';
+import CreatePostFormContainer from '../posts/create_post_form_container';
+import PostIndexContainer from '../posts/post_index_container';
 import { faNewspaper, faVideo, faUsers, faFlag, faCoins, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -54,6 +56,8 @@ export default class Feed extends React.Component {
                     <section id="feed-center">
                         <h1>This is the feed</h1>
                         <h1>Hi {this.props.user.fname}</h1>
+                        <CreatePostFormContainer user={this.props.user}/>
+                        <PostIndexContainer />
                     </section>
 
                     <section id="feed-right">

@@ -58,10 +58,13 @@ export default class SignupForm extends React.Component {
 
     renderErrors() {
         return(
-          <ul>
-            {Object.keys(this.props.errors).map(
-                (error, idx) => <li key={idx}>{this.props.errors[error]}</li>)}
-          </ul>
+            this.props.errors.length != 0 ? 
+                <ul id="login-errors">
+                    {Object.keys(this.props.errors).map(
+                        (error, idx) => <li key={idx}>{this.props.errors[error]}</li>)}
+                </ul>
+                :
+                <ul></ul>
         );
       }
 
@@ -86,9 +89,14 @@ export default class SignupForm extends React.Component {
                     </form>
                 </header>
 
-                {this.renderErrors()}
+                
 
                 <section id="login-light-blue">
+
+                    <div>
+                        {this.renderErrors()}
+                    </div>
+
                     <section id="login-body">
                         <section id="login-left">
                             <div id="login-description">
