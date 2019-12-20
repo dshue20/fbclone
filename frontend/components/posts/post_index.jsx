@@ -10,8 +10,8 @@ class PostIndex extends React.Component {
     render(){
         if (!this.props.users) return null;
         //debugger;
-        let posts = this.props.posts.map(post => 
-            <PostIndexItem post={post} user={this.props.users[post.user_id]}/>
+        let posts = this.props.posts.reverse().map(post => 
+            <PostIndexItem key={post.id} post={post} user={this.props.users[post.user_id]} today={new Date().toDateString()}/>
         );
         return (
             <div>

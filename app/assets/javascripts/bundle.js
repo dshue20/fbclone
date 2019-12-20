@@ -323,6 +323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./header */ "./frontend/components/feed/header.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -340,6 +341,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -376,62 +378,10 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       //debugger;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-        id: "feed-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        className: "fb-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.fb_icon
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "feed-search",
-        type: "text",
-        placeholder: " Search"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "feed-search-icon",
-        src: window.feed_search
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        id: "right-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/users/".concat(this.props.user.id),
-        className: "right-header-text"
-      }, this.props.user.fname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        className: "right-header-text"
-      }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        className: "right-header-text"
-      }, "Create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "feed-right-header-icon",
-        src: window.friends_icon
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "feed-right-header-icon",
-        src: window.messenger_icon
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "feed-right-header-icon",
-        src: window.notif_icon
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "feed-right-header-icon",
-        src: window.help_icon
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "feed-right-header-icon",
-        src: window.dropdown_icon
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "login-button",
-        onClick: this.props.logout
-      }, "Log Out"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        user: this.props.user,
+        logout: this.props.logout
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "main-feed"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "feed-left"
@@ -583,6 +533,85 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_feed__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/feed/header.jsx":
+/*!*********************************************!*\
+  !*** ./frontend/components/feed/header.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var Header = function Header(props) {
+  //debugger;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    id: "feed-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "fb-icon"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: window.fb_icon
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "feed-search",
+    type: "text",
+    placeholder: " Search"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "feed-search-icon",
+    src: window.feed_search
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    id: "right-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(props.user.id),
+    className: "right-header-text"
+  }, props.user.fname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "right-header-text"
+  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "right-header-text"
+  }, "Create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "feed-right-header-icon",
+    src: window.friends_icon
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "feed-right-header-icon",
+    src: window.messenger_icon
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "feed-right-header-icon",
+    src: window.notif_icon
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "feed-right-header-icon",
+    src: window.help_icon
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "feed-right-header-icon",
+    src: window.dropdown_icon
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "login-button",
+    onClick: props.logout
+  }, "Log Out")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Header);
 
 /***/ }),
 
@@ -773,10 +802,12 @@ function (_React$Component) {
 
       if (!this.props.users) return null; //debugger;
 
-      var posts = this.props.posts.map(function (post) {
+      var posts = this.props.posts.reverse().map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          key: post.id,
           post: post,
-          user: _this.props.users[post.user_id]
+          user: _this.props.users[post.user_id],
+          today: new Date().toDateString()
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, posts));
@@ -846,6 +877,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+
+
 
 
 
@@ -855,13 +890,50 @@ var PostIndexItem = function PostIndexItem(props) {
   }, props.post.body) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "post-body-long"
   }, props.post.body);
+  var date_object = new Date(props.post.updated_at);
+  var time_string;
+
+  if (date_object.getHours() > 12) {
+    date_object.setHours(date_object.getHours() - 12);
+    time_string = date_object.toTimeString().slice(0, 5) + ' PM';
+  } else if (date_object.getHours() === 0) {
+    date_object.setHours(12);
+    time_string = date_object.toTimeString().slice(0, 5) + ' AM';
+  } else if (date_object.getHours() === 12) {
+    time_string = date_object.toTimeString().slice(0, 5) + ' PM';
+  } else {
+    time_string = date_object.toTimeString().slice(0, 5) + ' AM';
+  }
+
+  ;
+
+  if (time_string[0] === '0') {
+    time_string = time_string.slice(1);
+  }
+
+  ;
+  var timestamp = date_object.toDateString() === props.today ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "post-timestamp"
+  }, time_string) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "post-timestamp"
+  }, date_object.toDateString() + ' at ' + time_string);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: props.post.id,
     className: "individual-post"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(props.user.id),
     className: "post-author"
-  }, props.user.fname + ' ' + props.user.lname), post_body);
+  }, props.user.fname + ' ' + props.user.lname), timestamp, post_body, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-like-comment"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "post-like-comment-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
+  }), " Like"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "post-like-comment-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCommentAlt"]
+  }), " Comment")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PostIndexItem);
@@ -1276,6 +1348,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _posts_post_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../posts/post_index_item */ "./frontend/components/posts/post_index_item.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1293,6 +1366,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1320,10 +1394,13 @@ function (_React$Component) {
       var user_posts = Object.values(this.props.posts).filter(function (post) {
         return post.user_id === _this.props.user.id;
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi ", this.props.user.fname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, user_posts.map(function (post) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: post.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, post.user_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, post.body));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi ", this.props.user.fname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, user_posts.reverse().map(function (post) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: post.id,
+          post: post,
+          user: _this.props.user,
+          today: new Date().toDateString()
+        });
       })));
     }
   }]);

@@ -1,6 +1,7 @@
-body, h1, h2, p, ul {
+body, h1, h2, p, ul, button {
     margin: 0;
     padding: 0;
+    border: 0;
 }
 
 a {

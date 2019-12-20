@@ -1,4 +1,5 @@
 import React from 'react';
+import PostIndexItem from '../posts/post_index_item';
 
 class UserShow extends React.Component {
     constructor(props){
@@ -15,11 +16,8 @@ class UserShow extends React.Component {
             <div>
                 <h1>Hi {this.props.user.fname}</h1>
                 <ul>
-                    {user_posts.map(post => 
-                        <li key={post.id}>
-                            <p>{post.user_id}</p>
-                            <p>{post.body}</p>
-                        </li>
+                    {user_posts.reverse().map(post => 
+                        <PostIndexItem key={post.id} post={post} user={this.props.user} today={new Date().toDateString()}/>
                     )}
                 </ul>
             </div>

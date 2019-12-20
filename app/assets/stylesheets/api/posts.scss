@@ -36,8 +36,31 @@
 
 .post-body-long, .post-body-short {
     margin: 10px;
+    margin-bottom: 0;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
 }
 
 .post-body-short {
     font-size: 28px;
+}
+
+.post-timestamp {
+    font-size: 10px;
+    color: gray;
+    margin-left: 10px;
+}
+
+.post-like-comment {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.post-like-comment-button {
+    width: 100px;
+    height: 30px;
+}
+
+.post-like-comment-button:hover {
+    background-color: lightgray;
 }
