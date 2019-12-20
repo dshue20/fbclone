@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import languages from '../splash/languages';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import PostIndexContainer from '../posts/post_index_container';
@@ -19,6 +20,7 @@ export default class Feed extends React.Component {
     }
 
     render() {
+        //debugger;
         return (
             <div>
                 <header id="feed-header">
@@ -26,7 +28,7 @@ export default class Feed extends React.Component {
                     <input className="feed-search" type="text" placeholder=" Search"/>
                     <a href="#"><img className="feed-search-icon" src={window.feed_search}/></a>
                     <section id="right-header">
-                        <a href="#" className="right-header-text">{this.props.user.fname}</a>
+                        <Link to={`/users/${this.props.user.id}`} className="right-header-text">{this.props.user.fname}</Link>
                         <a href="#" className="right-header-text">Home</a>
                         <a href="#" className="right-header-text">Create</a>
                         <a href="#"><img className="feed-right-header-icon" src={window.friends_icon}/></a>

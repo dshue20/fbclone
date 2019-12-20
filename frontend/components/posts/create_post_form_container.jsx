@@ -7,10 +7,10 @@ const mapStateToProps = (state, {user}) => {
     return {
         post: {
             body: '',
-            author: user.fname + ' ' + user.lname
+            //author: user.fname + ' ' + user.lname
+            user_id: user.id
         },
         user
-        //user: state.entities.users[state.session.id]
     }
 };
 
