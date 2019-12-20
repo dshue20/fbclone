@@ -17,8 +17,27 @@
 
 .individual-post {
     display: block;
-    width: 39vh;
+    width: 37vh;
     background-color: white;
     margin-top: 10px;
     border-radius: 5px;
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.post-author{
+    color: #4267b2;
+    font-weight: bold;
+}
+
+.post-author:hover {
+    text-decoration: underline;
+}
+
+.post-body-long, .post-body-short {
+    margin: 10px;
+}
+
+.post-body-short {
+    font-size: 28px;
 }

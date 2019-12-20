@@ -3,7 +3,7 @@ import { logout } from '../../actions/session_actions';
 import Feed from './feed';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
-  debugger;
+  //debugger;
   return {
     user: users[session.id]
   };

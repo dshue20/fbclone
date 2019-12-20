@@ -7,7 +7,6 @@ const mapStateToProps = (state, {user}) => {
     return {
         post: {
             body: '',
-            //author: user.fname + ' ' + user.lname
             user_id: user.id
         },
         user

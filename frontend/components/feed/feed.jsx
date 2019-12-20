@@ -56,8 +56,6 @@ export default class Feed extends React.Component {
                     </section>
 
                     <section id="feed-center">
-                        <h1>This is the feed</h1>
-                        <h1>Hi {this.props.user.fname}</h1>
                         <CreatePostFormContainer user={this.props.user}/>
                         <PostIndexContainer />
                     </section>

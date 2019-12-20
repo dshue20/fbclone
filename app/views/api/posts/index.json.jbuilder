@@ -6,7 +6,7 @@
     end
     json.users do
         json.set! post.user_id do
-            json.extract! post.user, :fname, :lname
+            json.extract! post.user, :fname, :lname, :id
         end
     end
 end

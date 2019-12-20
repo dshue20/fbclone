@@ -1,5 +1,6 @@
 import React from 'react';
 import CreatePostFormContainer from './create_post_form_container';
+import PostIndexItem from './post_index_item';
 
 class PostIndex extends React.Component {
     componentDidMount(){
@@ -10,11 +11,7 @@ class PostIndex extends React.Component {
         if (!this.props.users) return null;
         //debugger;
         let posts = this.props.posts.map(post => 
-            <li key={post.id} className="individual-post">
-                <p>{this.props.users[post.user_id].fname + ' '  + this.props.users[post.user_id].lname}</p>
-                <p>{post.body}</p>
-            </li>
-            // <PostIndexItem post={post}/>
+            <PostIndexItem post={post} user={this.props.users[post.user_id]}/>
         );
         return (
             <div>

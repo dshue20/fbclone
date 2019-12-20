@@ -38,7 +38,8 @@ export default class SignupForm extends React.Component {
             email: this.state.email,
             password: this.state.password,
             birthday: this.state.month + ' ' + this.state.day + ', ' + this.state.year,
-            gender: this.state.gender
+            gender: this.state.gender,
+            authoredPostIds: []
         });
         //debugger;
         this.props.signup(user);
