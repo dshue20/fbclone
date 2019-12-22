@@ -49,6 +49,12 @@
     font-weight: bold;
     font-family: Arial;
     font-size: 14px;
+    padding: 5px;
+}
+
+.right-header-text:hover {
+    background-color: gray;
+    border-radius: 2px;
 }
 
 #main-feed {
@@ -74,7 +80,7 @@
 }
 
 #feed-right {
-    width: 22%;
+    width: 16%;
 }
 
 #news-icon {

@@ -10,7 +10,7 @@ const Header = props => {
             <a href="#"><img className="feed-search-icon" src={window.feed_search}/></a>
             <section id="right-header">
                 <Link to={`/users/${props.user.id}`} className="right-header-text">{props.user.fname}</Link>
-                <a href="#" className="right-header-text">Home</a>
+                <Link to='/feed' className="right-header-text">Home</Link>
                 <a href="#" className="right-header-text">Create</a>
                 <a href="#"><img className="feed-right-header-icon" src={window.friends_icon}/></a>
                 <a href="#"><img className="feed-right-header-icon" src={window.messenger_icon}/></a>

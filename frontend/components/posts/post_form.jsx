@@ -9,6 +9,9 @@ class PostForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.action(this.state);
+        this.setState({
+            body: ''
+        })
     }
 
     update(property){
@@ -19,7 +22,7 @@ class PostForm extends React.Component {
         //debugger;
         return (
             <form id="post-form" onSubmit={this.handleSubmit.bind(this)}>
-                <input type="text" value={this.state.body} onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.user.fname}?`}/>
+                <textarea value={this.state.body} onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.user.fname}?`}/>
                 <button type="submit">Post</button>
             </form>
         )

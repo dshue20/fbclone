@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import languages from '../splash/languages';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import PostIndexContainer from '../posts/post_index_container';
 import { faNewspaper, faVideo, faUsers, faFlag, faCoins, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";

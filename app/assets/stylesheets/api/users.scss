@@ -1,3 +1,71 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show-container {
+    display: flex;
+    justify-content: center;
+}
+
+.user-show {
+    display: flex;
+    width: 60%;
+}
+
+.user-name-add-friend {
+    display: flex;
+    align-items: center;
+}
+
+.user-show-name {
+    margin: 5px;
+    font-size: 32px;
+}
+
+.add-friend {
+    background-color: #f5f6f7;
+    border: 1px solid lightgray;
+    padding: 5px;
+    margin-left: 20px;
+    border-radius: 3px;
+}
+
+.add-friend:hover {
+    cursor: pointer;
+}
+
+.user-bio-section {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.user-bio-title {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.user-bio-form {
+    margin-top: 5px;
+    width: 41vh;
+}
+
+.user-bio-text {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 7px;
+    width: 33vh;
+}
+
+#user-bio-button {
+    width: 35vh;
+}
+
+.user-show-right {
+    width: 66%;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.profile-posts {
+    margin-top: 20px;
+}

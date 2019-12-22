@@ -1,7 +1,7 @@
 @users.each do |user|
     json.users do
         json.set! user.id do
-            json.extract! user, :fname, :lname, :id
+            json.extract! user, :fname, :lname, :id, :bio
         end
     end
     json.posts do

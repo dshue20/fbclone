@@ -23,6 +23,7 @@ const PostIndexItem = props => {
     };
     const timestamp = date_object.toDateString() === props.today ? <p className="post-timestamp">{time_string}</p> : 
         <p className="post-timestamp">{date_object.toDateString() + ' at ' + time_string}</p>;
+    //debugger;
     return (
         <li key={props.post.id} className="individual-post">
             <Link to={`/users/${props.user.id}`} className="post-author">{props.user.fname + ' ' + props.user.lname}</Link>
