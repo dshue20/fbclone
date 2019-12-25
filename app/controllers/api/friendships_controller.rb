@@ -1,13 +1,11 @@
 class Api::FriendshipsController < ApplicationController
     def index
-        # @friendships = Friendship.all
-        @friendship = Friendship.where(requestor_id: params[:requestor_id], receiver_id: params[:receiver_id]).first
-        if !@friendship
-            @friendship = Friendship.where(requestor_id: params[:receiver_id], receiver_id: params[:requestor_id]).first
-        end
-        # if @friendship.nil?
-        #     @friendship = 
-        render :show
+        @friendships = Friendship.all
+        # @friendship = Friendship.where(requestor_id: params[:requestor_id], receiver_id: params[:receiver_id]).first
+        # if !@friendship
+        #     @friendship = Friendship.where(requestor_id: params[:receiver_id], receiver_id: params[:requestor_id]).first
+        # end
+        render :index
     end
     
     def create

@@ -10,57 +10,70 @@ class UserShow extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            gotFriends: false
+            friendship: ''
         };
-        this.getFriendships = this.getFriendships.bind(this);
+        // this.getFriendships = this.getFriendships.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchPosts();
-        this.props.fetchUsers().then(() => this.props.fetchFriendships(this.props.current_user.id, this.props.user.id));
-        this.setState({ gotFriends: false });
-        //this.props.fetchFriendships();
+        //this.props.fetchUsers().then(() => this.props.fetchFriendships(this.props.current_user.id, this.props.user.id));
+        this.props.fetchUsers().then(() => this.props.fetchFriendships()).then(() => this.setState({ friendship: this.getFriendStatus() }));
     }
 
     componentDidUpdate(prevProps){
-        // if (this.props.friendships.status !== prevProps.friendships.status){
-        //     this.setState({ gotFriends: false });
-        // }
         if (this.props.user.id !== prevProps.user.id){
             this.props.fetchPosts();
-            this.props.fetchUsers().then(() => this.props.fetchFriendships(this.props.current_user.id, this.props.user.id));
+            //this.props.fetchUsers().then(() => this.props.fetchFriendships(this.props.current_user.id, this.props.user.id));
+            this.props.fetchUsers().then(() => this.props.fetchFriendships()).then(() => this.setState({ friendship: this.getFriendStatus() }));
         }
+        debugger;
     }
 
-    getFriendships(){
-        this.props.fetchFriendships(this.props.current_user.id, this.props.user.id);
-        this.setState({ gotFriends: true });
-    }
+    // getFriendships(){
+    //     this.props.fetchFriendships(this.props.current_user.id, this.props.user.id);
+    //     this.setState({ gotFriends: true });
+    // }
 
     getFriendStatus(){
-        //this.setState({ gotFriends: false });
-        if (Object.keys(this.props.friendships).length == 0 && this.props.user != this.props.current_user){
+        if (this.props.user === this.props.current_user){
+            return ''
+        };
+        const friendship = Object.values(this.props.friendships.friendships).filter(
+            friendship => (friendship.requestor_id === this.props.user.id && friendship.receiver_id === this.props.current_user.id) 
+            || (friendship.receiver_id === this.props.user.id && friendship.requestor_id === this.props.current_user.id))[0];
+
+        if (!friendship && this.props.user != this.props.current_user){
             return <FriendButtonContainer user={this.props.user} current_user={this.props.current_user}/>
         }
-        else if (this.props.friendships.status === 'pending' && this.props.friendships.requestor_id === this.props.current_user.id) {
+        else if (friendship.status === 'pending' && friendship.requestor_id === this.props.current_user.id) {
             return <button className="add-friend">Pending...</button>
         }
-        else if (this.props.friendships.status === 'pending'){
+        else if (friendship.status === 'pending'){
             return <FriendResponseContainer friendship={this.props.friendships}/>
         }
-        else if (this.props.friendships.status === 'accepted'){
+        else if (friendship.status === 'accepted'){
             return <button className="add-friend">Friends</button>
         };
+        
+        // if (Object.keys(this.props.friendships).length == 0 && this.props.user != this.props.current_user){
+        //     return <FriendButtonContainer user={this.props.user} current_user={this.props.current_user}/>
+        // }
+        // else if (this.props.friendships.status === 'pending' && this.props.friendships.requestor_id === this.props.current_user.id) {
+        //     return <button className="add-friend">Pending...</button>
+        // }
+        // else if (this.props.friendships.status === 'pending'){
+        //     return <FriendResponseContainer friendship={this.props.friendships}/>
+        // }
+        // else if (this.props.friendships.status === 'accepted'){
+        //     return <button className="add-friend">Friends</button>
+        // };
     }
 
     render() {
-        // if (this.props.user && !this.state.gotFriends) {
-        //     this.getFriendships();
-        // }
-
         const user_posts = this.props.user? Object.values(this.props.posts).filter(post => post.user_id === this.props.user.id) : [];
         
-        const add_friend = this.getFriendStatus();
+        //const add_friend = this.getFriendStatus();
 
         let user_name;
         let user_bio;
@@ -71,7 +84,7 @@ class UserShow extends React.Component {
             user_name = <p className="user-show-name">Loading...</p>;
             user_bio = <p id="user-bio-button">Loading...</p>
         }
-        debugger;
+        //debugger;
         return (
             <div>
                 <Header user={this.props.current_user} logout={this.props.logout}/>
@@ -80,7 +93,8 @@ class UserShow extends React.Component {
                         <section className="user-bio-section">
                             <div className="user-name-add-friend">
                                 {user_name}
-                                {add_friend}
+                                {/* {this.getFriendStatus()} */}
+                                {this.state.friendship}
                             </div>
                             <p className="user-bio-title">Bio</p>
                             {user_bio}

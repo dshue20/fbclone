@@ -17,9 +17,9 @@ export const createFriendship = friendship => dispatch => (
     FriendshipAPIUtil.createFriendship(friendship).then(friendship => dispatch(receiveFriendship(friendship)))
 );
 
-export const fetchFriendships = (requestor_id, receiver_id) => dispatch => {
+export const fetchFriendships = () => dispatch => {
     return (
-        FriendshipAPIUtil.fetchFriendships(requestor_id, receiver_id).then(friendships => {
+        FriendshipAPIUtil.fetchFriendships().then(friendships => {
             return (dispatch(receiveAllFriendships(friendships)))
         })
     )

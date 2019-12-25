@@ -6,11 +6,10 @@ export const createFriendship = friendship => (
     })
 );
 
-export const fetchFriendships = (requestor_id, receiver_id) => (
+export const fetchFriendships = () => (
     $.ajax({
         method: 'GET',
-        url: '/api/friendships',
-        data: {requestor_id, receiver_id}
+        url: '/api/friendships'
     })
 );
 

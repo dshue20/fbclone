@@ -6,8 +6,8 @@ const friendshipsReducer = (state={}, action) => {
         case RECEIVE_FRIENDSHIP:
             return Object.assign({}, state, action.friendship)
         case RECEIVE_ALL_FRIENDSHIPS:
-            return action.friendships
-            //return Object.assign({}, state, action.friendships)
+            //return action.friendships
+            return Object.assign({}, state, action.friendships)
         default:
             return state;
     }
