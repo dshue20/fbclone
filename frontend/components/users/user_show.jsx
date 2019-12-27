@@ -93,7 +93,9 @@ class UserShow extends React.Component {
                             <CreatePostFormContainer user={this.props.current_user}/>
                             <ul className="profile-posts">
                                 {user_posts.reverse().map(post => 
-                                    <PostIndexItemContainer key={post.id} post={post} user={this.props.user} today={new Date().toDateString()}/>
+                                    <PostIndexItemContainer key={post.id} post={post} 
+                                    user={this.props.user} today={new Date().toDateString()} 
+                                    current_user={this.props.current_user}/>
                                 )}
                             </ul>
                         </section>

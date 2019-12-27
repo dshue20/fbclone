@@ -62,8 +62,15 @@
 .post-like-comment-button {
     width: 100px;
     height: 30px;
+    color: inherit;
 }
 
-.post-like-comment-button:hover {
+.post-like-comment-button:hover, .liked-button:hover {
     background-color: lightgray;
+}
+
+.liked-button {
+    width: 100px;
+    height: 30px;
+    color: rgb(32, 120, 244);
 }

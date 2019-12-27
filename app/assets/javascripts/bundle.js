@@ -1367,10 +1367,16 @@ function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchLikes('post', this.props.post.id).then(function () {
-        return _this2.setState({
-          numLikes: Object.keys(_this2.props.likes).length
-        });
-      });
+        if (_this2.props.likes.likes) {
+          _this2.setState({
+            numLikes: Object.keys(_this2.props.likes.likes).length
+          });
+        } else {
+          _this2.setState({
+            numLikes: 0
+          });
+        }
+      }); //debugger;
     }
   }, {
     key: "createLike",
@@ -1386,13 +1392,40 @@ function (_React$Component) {
         return _this3.props.fetchLikes('post', _this3.props.post.id);
       }).then(function () {
         return _this3.setState({
-          numLikes: Object.keys(_this3.props.likes).length
+          numLikes: Object.keys(_this3.props.likes.likes).length
         });
       });
     }
   }, {
+    key: "likeButton",
+    value: function likeButton() {
+      var _this4 = this;
+
+      if (this.props.likes.likes) {
+        if (Object.values(this.props.likes.likes).filter(function (like) {
+          return like.user_id === _this4.props.current_user.id;
+        }).length > 0) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            className: "liked-button"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
+          }), " Like");
+        }
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.createLike
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "post-like-comment-button",
+          type: "submit"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
+        }), " Like"));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
+      //debugger;
       var post_body = this.props.post.body.length < 50 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post-body-short"
       }, this.props.post.body) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1434,14 +1467,7 @@ function (_React$Component) {
         className: "post-author"
       }, this.props.user.fname + ' ' + this.props.user.lname), timestamp, post_body, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.numLikes, " Pokemon like this"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post-like-comment"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.createLike
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "post-like-comment-button",
-        type: "submit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
-      }), " Like")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.likeButton(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "post-like-comment-button",
         type: "submit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -1475,7 +1501,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref, _ref2) {
-  var likes = _ref.entities.likes.likes;
+  var likes = _ref.entities.likes;
   var post = _ref2.post,
       user = _ref2.user,
       today = _ref2.today,
@@ -2227,7 +2253,8 @@ function (_React$Component) {
           key: post.id,
           post: post,
           user: _this5.props.user,
-          today: new Date().toDateString()
+          today: new Date().toDateString(),
+          current_user: _this5.props.current_user
         });
       }))))));
     }

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createLike, fetchLikes } from '../../actions/like_actions';
 import PostIndexItem from './post_index_item';
 
-const mapStateToProps = ({entities: {likes: {likes}}}, {post, user, today, current_user }) => {
+const mapStateToProps = ({entities: {likes}}, {post, user, today, current_user }) => {
     //debugger;
     return( 
         { post, user, today, likes, current_user }
