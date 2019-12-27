@@ -2,8 +2,13 @@ import { connect } from 'react-redux';
 import { updateFriendship } from '../../actions/friendship_actions';
 import FriendResponse from './friend_response';
 
-const mapStateToProps = (state, {friendship}) => {
-    return {friendship}
+const mapStateToProps = (state, {user, current_user}) => {
+    //debugger;
+    return {
+        friendships: state.entities.friendships.friendships,
+        user,
+        current_user
+    }
 };
 
 const mapDispatchToProps = dispatch => {

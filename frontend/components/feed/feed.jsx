@@ -42,7 +42,7 @@ export default class Feed extends React.Component {
 
                     <section id="feed-center">
                         <CreatePostFormContainer user={this.props.user}/>
-                        <PostIndexContainer />
+                        <PostIndexContainer current_user={this.props.user}/>
                     </section>
 
                     <section id="feed-right">

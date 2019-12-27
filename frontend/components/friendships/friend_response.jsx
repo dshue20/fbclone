@@ -5,12 +5,15 @@ import { faUserCheck, faUserTimes } from "@fortawesome/free-solid-svg-icons";
 export default class FriendResponse extends React.Component {
     constructor(props){
         super(props);
-        this.state = this.props.friendship;
+        this.state = Object.values(this.props.friendships).filter(friendship => 
+            (friendship.requestor_id === this.props.user.id && friendship.receiver_id === this.props.current_user.id) || 
+            (friendship.requestor_id === this.props.current_user.id && friendship.receiver_id === this.props.user.id))[0];
         this.addFriend = this.addFriend.bind(this);
         this.rejectFriend = this.rejectFriend.bind(this);
     }
 
     addFriend(){
+        //debugger;
         this.setState({status: 'accepted'});
         this.props.updateFriendship(this.state);
     }

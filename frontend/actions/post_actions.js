@@ -23,10 +23,6 @@ export const fetchPosts = () => dispatch => (
     PostApiUtil.fetchPosts().then(posts => dispatch(receiveAllPosts(posts)))
 );
 
-// export const fetchPost = postId => dispatch => (
-//     PostApiUtil.fetchPost(postId).then(post => dispatch(receivePost(post)))
-// );
-
 export const createPost = post => dispatch => (
     PostApiUtil.createPost(post).then(post => dispatch(receivePost(post)))
 );
