@@ -796,22 +796,62 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FriendButton).call(this, props));
     _this.addFriend = _this.addFriend.bind(_assertThisInitialized(_this));
+    _this.addFriendButton = _this.addFriendButton.bind(_assertThisInitialized(_this));
+    _this.acceptFriend = _this.acceptFriend.bind(_assertThisInitialized(_this));
+    _this.rejectFriend = _this.rejectFriend.bind(_assertThisInitialized(_this));
+    _this.getFriendship = _this.getFriendship.bind(_assertThisInitialized(_this));
+    _this.state = {
+      button: 'Add Friend',
+      friendship: {}
+    };
     return _this;
   }
 
   _createClass(FriendButton, [{
     key: "addFriend",
-    value: function addFriend() {
+    value: function addFriend(e) {
+      e.preventDefault();
+      var that = this;
       this.props.createFriendship({
         //id: parseInt(this.props.current_user.id.toString() + this.props.user.id.toString()),
         requestor_id: this.props.current_user.id,
         receiver_id: this.props.user.id,
         status: "pending"
+      }).then(function () {
+        that.setState({
+          button: "Pending..."
+        });
       });
     }
   }, {
-    key: "render",
-    value: function render() {
+    key: "acceptFriend",
+    value: function acceptFriend() {
+      var _this2 = this;
+
+      var friendship = this.getFriendship();
+      friendship.status = 'accepted';
+      this.props.updateFriendship(friendship).then(function () {
+        return _this2.setState({
+          friendship: friendship
+        });
+      });
+    }
+  }, {
+    key: "rejectFriend",
+    value: function rejectFriend() {
+      var _this3 = this;
+
+      friendship = this.getFriendship();
+      friendship.status = 'rejected';
+      this.props.updateFriendship(friendship).then(function () {
+        return _this3.setState({
+          friendship: friendship
+        });
+      });
+    }
+  }, {
+    key: "addFriendButton",
+    value: function addFriendButton() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.addFriend
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -819,7 +859,81 @@ function (_React$Component) {
         className: "add-friend"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faUserFriends"]
-      }), " Add Friend")));
+      }), " ", this.state.button)));
+    }
+  }, {
+    key: "acceptRejectButton",
+    value: function acceptRejectButton() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.acceptFriend
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "add-friend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faUserCheck"]
+      }), " Accept Friend Request")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.rejectFriend
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "add-friend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faUserTimes"]
+      }), " Reject Friend Request")));
+    }
+  }, {
+    key: "getFriendship",
+    value: function getFriendship() {
+      var _this4 = this;
+
+      return Object.values(this.props.friendships.friendships).filter(function (friendship) {
+        return friendship.requestor_id === _this4.props.user.id && friendship.receiver_id === _this4.props.current_user.id || friendship.receiver_id === _this4.props.user.id && friendship.requestor_id === _this4.props.current_user.id;
+      })[0];
+    }
+  }, {
+    key: "getFriendStatus",
+    value: function getFriendStatus() {
+      if (!this.props.user) {
+        return null;
+      }
+
+      ;
+
+      if (this.props.user === this.props.current_user) {
+        return '';
+      }
+
+      ;
+
+      if (Object.values(this.props.friendships).length === 0) {
+        return this.addFriendButton();
+      }
+
+      ;
+      var friendship = this.getFriendship(); //debugger;
+
+      if (!friendship) {
+        return this.addFriendButton();
+      } else if ((friendship.status === 'pending' || friendship.status === 'rejected') && friendship.requestor_id === this.props.current_user.id) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "add-friend"
+        }, "Pending...");
+      } else if (friendship.status === 'pending') {
+        return this.acceptRejectButton(friendship);
+      } else if (friendship.status === 'accepted') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "add-friend"
+        }, "Friends");
+      } else if (friendship.status === 'rejected') {
+        return '';
+      }
+
+      ;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      //debugger;
+      return this.getFriendStatus();
     }
   }]);
 
@@ -848,9 +962,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, _ref) {
   var user = _ref.user,
-      current_user = _ref.current_user;
+      current_user = _ref.current_user,
+      friendships = _ref.friendships;
   return {
-    friendships: state.entities.friendships,
+    friendships: friendships,
     user: user,
     current_user: current_user
   };
@@ -860,6 +975,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     createFriendship: function createFriendship(friendship) {
       return dispatch(Object(_actions_friendship_actions__WEBPACK_IMPORTED_MODULE_1__["createFriendship"])(friendship));
+    },
+    updateFriendship: function updateFriendship(friendship) {
+      return dispatch(Object(_actions_friendship_actions__WEBPACK_IMPORTED_MODULE_1__["updateFriendship"])(friendship));
     }
   };
 };
@@ -918,14 +1036,14 @@ function (_React$Component) {
     _this.state = Object.values(_this.props.friendships).filter(function (friendship) {
       return friendship.requestor_id === _this.props.user.id && friendship.receiver_id === _this.props.current_user.id || friendship.requestor_id === _this.props.current_user.id && friendship.receiver_id === _this.props.user.id;
     })[0];
-    _this.addFriend = _this.addFriend.bind(_assertThisInitialized(_this));
+    _this.acceptFriend = _this.acceptFriend.bind(_assertThisInitialized(_this));
     _this.rejectFriend = _this.rejectFriend.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(FriendResponse, [{
-    key: "addFriend",
-    value: function addFriend() {
+    key: "acceptFriend",
+    value: function acceptFriend() {
       //debugger;
       this.setState({
         status: 'accepted'
@@ -944,7 +1062,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.addFriend
+        onSubmit: this.acceptFriend
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "add-friend"
@@ -1194,7 +1312,9 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.fetchUsers().then(function () {
+      this.props.fetchPosts().then(function () {
+        return _this2.props.fetchUsers();
+      }).then(function () {
         return _this2.props.fetchFriendships();
       }).then(function () {
         return _this2.setState({
@@ -1232,7 +1352,7 @@ function (_React$Component) {
 
       if (!this.props.users) return null; //debugger;
 
-      var posts = this.props.posts.filter(function (post) {
+      var posts = Object.values(this.props.posts).filter(function (post) {
         return _this4.state.friendIds.includes(post.user_id);
       }).reverse().map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_index_item_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1276,8 +1396,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, _ref) {
   var current_user = _ref.current_user;
+  //debugger;
   return {
-    posts: Object.values(state.entities.posts),
+    posts: state.entities.posts,
     users: state.entities.users,
     friendships: state.entities.friendships.friendships,
     current_user: current_user
@@ -1356,7 +1477,8 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PostIndexItem).call(this, props));
     _this.createLike = _this.createLike.bind(_assertThisInitialized(_this));
     _this.state = {
-      numLikes: 0
+      numLikes: 0,
+      liked: false
     };
     return _this;
   }
@@ -1392,25 +1514,20 @@ function (_React$Component) {
         return _this3.props.fetchLikes('post', _this3.props.post.id);
       }).then(function () {
         return _this3.setState({
-          numLikes: Object.keys(_this3.props.likes.likes).length
+          numLikes: Object.keys(_this3.props.likes.likes).length,
+          liked: true
         });
       });
     }
   }, {
     key: "likeButton",
     value: function likeButton() {
-      var _this4 = this;
-
-      if (this.props.likes.likes) {
-        if (Object.values(this.props.likes.likes).filter(function (like) {
-          return like.user_id === _this4.props.current_user.id;
-        }).length > 0) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-            className: "liked-button"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
-          }), " Like");
-        }
+      if (this.props.post.like_ids.length > 0 || this.state.liked) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "liked-button"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
+        }), " Like");
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.createLike
@@ -2106,107 +2223,40 @@ function (_React$Component) {
   _inherits(UserShow, _React$Component);
 
   function UserShow(props) {
-    var _this;
-
     _classCallCheck(this, UserShow);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(UserShow).call(this, props));
-    _this.state = {
-      friendship: ''
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(UserShow).call(this, props));
   }
 
   _createClass(UserShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
+      var _this = this;
 
       this.props.fetchPosts();
       this.props.fetchUsers().then(function () {
-        return _this2.props.fetchFriendships();
-      }).then(function () {
-        return _this2.setState({
-          friendship: _this2.getFriendStatus()
-        });
+        return _this.props.fetchFriendships();
       });
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      var _this3 = this;
+      var _this2 = this;
 
-      // debugger;
-      // if (!this.props.user){
-      //     this.props.fetchPosts();
-      //     this.props.fetchUsers().then(() => this.props.fetchFriendships()).then(() => this.setState({ friendship: this.getFriendStatus() }));
-      // } else if (this.props.user.id !== prevProps.user.id){
-      //     this.props.fetchPosts();
-      //     this.props.fetchUsers().then(() => this.props.fetchFriendships()).then(() => this.setState({ friendship: this.getFriendStatus() }));
-      // };
       if (this.props.match.params.userId != prevProps.match.params.userId) {
         this.props.fetchPosts();
         this.props.fetchUsers().then(function () {
-          return _this3.props.fetchFriendships();
-        }).then(function () {
-          return _this3.setState({
-            friendship: _this3.getFriendStatus()
-          });
+          return _this2.props.fetchFriendships();
         });
       }
-    }
-  }, {
-    key: "getFriendStatus",
-    value: function getFriendStatus() {
-      var _this4 = this;
-
-      //debugger;
-      if (!this.props.user) {
-        return null;
-      }
-
-      ;
-
-      if (this.props.user === this.props.current_user) {
-        return '';
-      }
-
-      ;
-      var friendship = Object.values(this.props.friendships.friendships).filter(function (friendship) {
-        return friendship.requestor_id === _this4.props.user.id && friendship.receiver_id === _this4.props.current_user.id || friendship.receiver_id === _this4.props.user.id && friendship.requestor_id === _this4.props.current_user.id;
-      })[0];
-
-      if (!friendship) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_friendships_friend_button_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          user: this.props.user,
-          current_user: this.props.current_user
-        });
-      } else if ((friendship.status === 'pending' || friendship.status === 'rejected') && friendship.requestor_id === this.props.current_user.id) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "add-friend"
-        }, "Pending...");
-      } else if (friendship.status === 'pending') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_friendships_friend_response_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          user: this.props.user,
-          current_user: this.props.current_user
-        });
-      } else if (friendship.status === 'accepted') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "add-friend"
-        }, "Friends");
-      } else if (friendship.status === 'rejected') {
-        return '';
-      }
-
-      ;
     }
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this3 = this;
 
       var user_posts = this.props.user ? Object.values(this.props.posts).filter(function (post) {
-        return post.user_id === _this5.props.user.id;
+        return post.user_id === _this3.props.user.id;
       }) : [];
       var user_name;
       var user_bio;
@@ -2240,7 +2290,11 @@ function (_React$Component) {
         className: "user-bio-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-name-add-friend"
-      }, user_name, this.state.friendship), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, user_name, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_friendships_friend_button_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        user: this.props.user,
+        current_user: this.props.current_user,
+        friendships: this.props.friendships
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "user-bio-title"
       }, "Bio"), user_bio), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "user-show-right"
@@ -2252,9 +2306,9 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_index_item_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: post.id,
           post: post,
-          user: _this5.props.user,
+          user: _this3.props.user,
           today: new Date().toDateString(),
-          current_user: _this5.props.current_user
+          current_user: _this3.props.current_user
         });
       }))))));
     }
@@ -2470,6 +2524,8 @@ var friendshipsReducer = function friendshipsReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/like_actions */ "./frontend/actions/like_actions.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/post_actions */ "./frontend/actions/post_actions.js");
+
 
 
 var likesReducer = function likesReducer() {
@@ -2483,12 +2539,14 @@ var likesReducer = function likesReducer() {
 
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_LIKES"]:
       return action.likes;
-    //return Object.assign({}, state, action.likes.likes);
 
     case _actions_like_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_LIKE"]:
       var newState = Object.assign({}, state);
       delete newState[action.likeId];
       return newState;
+
+    case _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_POSTS"]:
+      return Object.assign({}, state, action.posts.likes);
 
     default:
       return state;

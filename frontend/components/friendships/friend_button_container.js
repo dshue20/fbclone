@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { createFriendship } from '../../actions/friendship_actions';
+import { createFriendship, updateFriendship } from '../../actions/friendship_actions';
 import FriendButton from './friend_button';
 
-const mapStateToProps = (state, {user, current_user}) => {
+const mapStateToProps = (state, {user, current_user, friendships}) => {
     return {
-        friendships: state.entities.friendships,
+        friendships,
         user,
         current_user
     }
@@ -12,7 +12,8 @@ const mapStateToProps = (state, {user, current_user}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createFriendship: friendship => dispatch(createFriendship(friendship))
+        createFriendship: friendship => dispatch(createFriendship(friendship)),
+        updateFriendship: friendship => dispatch(updateFriendship(friendship))
     };
 };
 

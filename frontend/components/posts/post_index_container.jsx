@@ -5,8 +5,9 @@ import { fetchUsers } from '../../actions/user_actions';
 import { fetchFriendships } from '../../actions/friendship_actions';
 
 const mapStateToProps = (state, {current_user}) => {
+    //debugger;
     return {
-        posts: Object.values(state.entities.posts),
+        posts: state.entities.posts,
         users: state.entities.users,
         friendships: state.entities.friendships.friendships,
         current_user

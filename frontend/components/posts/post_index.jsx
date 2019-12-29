@@ -11,10 +11,11 @@ class PostIndex extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchUsers().then(
-            () => this.props.fetchFriendships()).then(
-                () => this.setState({ friendships: this.getFriendships() })).then(
-                    () => this.setState({ friendIds: this.getFriendIds() }));
+        this.props.fetchPosts().then(
+            () => this.props.fetchUsers()).then(
+                () => this.props.fetchFriendships()).then(
+                    () => this.setState({ friendships: this.getFriendships() })).then(
+                        () => this.setState({ friendIds: this.getFriendIds() }));
     }
 
     getFriendships(){
@@ -38,7 +39,7 @@ class PostIndex extends React.Component {
     render(){
         if (!this.props.users) return null;
         //debugger;
-        let posts = this.props.posts.filter(post => 
+        let posts = Object.values(this.props.posts).filter(post => 
             this.state.friendIds.includes(post.user_id)).reverse().map(post => 
                 <PostIndexItemContainer key={post.id} post={post} user={this.props.users[post.user_id]} 
                     today={new Date().toDateString()} current_user={this.props.current_user}/>

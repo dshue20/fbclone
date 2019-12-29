@@ -8,11 +8,11 @@ export default class FriendResponse extends React.Component {
         this.state = Object.values(this.props.friendships).filter(friendship => 
             (friendship.requestor_id === this.props.user.id && friendship.receiver_id === this.props.current_user.id) || 
             (friendship.requestor_id === this.props.current_user.id && friendship.receiver_id === this.props.user.id))[0];
-        this.addFriend = this.addFriend.bind(this);
+        this.acceptFriend = this.acceptFriend.bind(this);
         this.rejectFriend = this.rejectFriend.bind(this);
     }
 
-    addFriend(){
+    acceptFriend(){
         //debugger;
         this.setState({status: 'accepted'});
         this.props.updateFriendship(this.state);
@@ -26,7 +26,7 @@ export default class FriendResponse extends React.Component {
     render(){
         return (
             <div>
-                <form onSubmit={this.addFriend}>
+                <form onSubmit={this.acceptFriend}>
                     <button type="submit" className="add-friend">
                         <FontAwesomeIcon icon={faUserCheck} /> Accept Friend Request
                     </button>

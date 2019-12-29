@@ -8,7 +8,8 @@ export default class PostIndexItem extends React.Component {
         super(props);
         this.createLike = this.createLike.bind(this);
         this.state = {
-            numLikes: 0
+            numLikes: 0,
+            liked: false
         };
     }
 
@@ -32,14 +33,15 @@ export default class PostIndexItem extends React.Component {
             likeable_id: this.props.post.id,
             user_id: this.props.current_user.id
         }).then(() => this.props.fetchLikes('post', this.props.post.id)).then(() => 
-        this.setState({numLikes: Object.keys(this.props.likes.likes).length}));
+        this.setState({
+            numLikes: Object.keys(this.props.likes.likes).length,
+            liked: true
+        }));
     }
 
     likeButton(){
-        if (this.props.likes.likes){
-            if (Object.values(this.props.likes.likes).filter(like => like.user_id === this.props.current_user.id).length > 0) {
-                return <button className="liked-button"><FontAwesomeIcon icon={faThumbsUp} /> Like</button>
-            }
+        if (this.props.post.like_ids.length > 0 || this.state.liked){
+            return <button className="liked-button"><FontAwesomeIcon icon={faThumbsUp} /> Like</button>
         }else {
             return <form onSubmit={this.createLike}>
                 <button className="post-like-comment-button" type="submit"><FontAwesomeIcon icon={faThumbsUp} /> Like</button>
