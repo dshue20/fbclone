@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { faThumbsUp, faCommentAlt } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp, faCommentAlt, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class PostIndexItem extends React.Component {
@@ -49,6 +49,22 @@ export default class PostIndexItem extends React.Component {
         }
     }
 
+    userNames(){
+        if (!this.props.post.receiver_id || this.props.post.receiver_id === this.props.user.id){
+            return <Link to={`/users/${this.props.user.id}`} className="post-author">{this.props.user.fname + ' ' + this.props.user.lname}</Link>
+        } else {
+            const show_page_user = this.props.users[this.props.post.receiver_id];
+            //debugger;
+            return (
+                <div>
+                    <Link to={`/users/${this.props.user.id}`} className="post-author">{this.props.user.fname + ' ' + this.props.user.lname}</Link>
+                    <FontAwesomeIcon className="right-caret" icon={faCaretRight} />
+                    <Link to={`/users/${show_page_user.id}`} className="post-author">{show_page_user.fname + ' ' + show_page_user.lname}</Link>
+                </div>
+            )
+        }
+    }
+
     render(){
         //debugger;
         const post_body = (this.props.post.body.length < 50)?  
@@ -78,7 +94,7 @@ export default class PostIndexItem extends React.Component {
         //debugger;
         return (
             <li key={this.props.post.id} className="individual-post">
-                <Link to={`/users/${this.props.user.id}`} className="post-author">{this.props.user.fname + ' ' + this.props.user.lname}</Link>
+                {this.userNames()}
                 {timestamp}
                 {post_body}
                 <p>{this.state.numLikes} Pokemon like this</p>

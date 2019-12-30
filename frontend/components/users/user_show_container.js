@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
         user: state.entities.users[ownProps.match.params.userId],
         posts: state.entities.posts,
         current_user: state.entities.users[state.session.id],
-        friendships: state.entities.friendships
+        friendships: state.entities.friendships,
+        allUsers: state.entities.users
     }
 };
 

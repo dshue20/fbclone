@@ -4,7 +4,8 @@ import Header from '../feed/header';
 import UpdateUserBioContainer from './update_user_bio_container';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import FriendButtonContainer from '../friendships/friend_button_container';
-import FriendResponseContainer from '../friendships/friend_response_container';
+import { faBirthdayCake } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class UserShow extends React.Component {
     constructor(props){
@@ -24,7 +25,9 @@ class UserShow extends React.Component {
     }
 
     render() {
-        const user_posts = this.props.user? Object.values(this.props.posts).filter(post => post.user_id === this.props.user.id) : [];
+        const user_posts = this.props.user? Object.values(this.props.posts).filter(post => 
+            (post.user_id === this.props.user.id && !post.receiver_id) || (post.receiver_id === this.props.user.id)) 
+            : [];
 
         let user_name;
         let user_bio;
@@ -47,16 +50,20 @@ class UserShow extends React.Component {
                                 <FriendButtonContainer user={this.props.user} current_user={this.props.current_user} 
                                 friendships={this.props.friendships}/>
                             </div>
+                            <div className="birthday-div">
+                                <FontAwesomeIcon icon={faBirthdayCake} />
+                                <p className="birthday-p">{this.props.user.birthday}</p>
+                            </div>
                             <p className="user-bio-title">Bio</p>
                             {user_bio}
                         </section>
                         <section className="user-show-right">
-                            <CreatePostFormContainer user={this.props.current_user}/>
+                            <CreatePostFormContainer current_user={this.props.current_user} user={this.props.user}/>
                             <ul className="profile-posts">
                                 {user_posts.reverse().map(post => 
                                     <PostIndexItemContainer key={post.id} post={post} 
-                                    user={this.props.user} today={new Date().toDateString()} 
-                                    current_user={this.props.current_user}/>
+                                    user={this.props.allUsers[post.user_id]} today={new Date().toDateString()} 
+                                    current_user={this.props.current_user} />
                                 )}
                             </ul>
                         </section>

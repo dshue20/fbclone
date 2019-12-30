@@ -1,6 +1,5 @@
 class Api::LikesController < ApplicationController
     def index
-        # @friendship = Friendship.where(requestor_id: params[:requestor_id], receiver_id: params[:receiver_id]).first
         @likes = Like.where(likeable_type: params[:likeable_type], likeable_id: params[:likeable_id])
         render :index
     end

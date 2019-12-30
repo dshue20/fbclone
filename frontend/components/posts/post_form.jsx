@@ -8,7 +8,11 @@ class PostForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.action(this.state);
+        let newPost = Object.assign({}, this.state);
+        if (this.props.user){
+            newPost.receiver_id = this.props.user.id;
+        };
+        this.props.createPost(newPost);
         this.setState({
             body: ''
         })
@@ -22,7 +26,7 @@ class PostForm extends React.Component {
         //debugger;
         return (
             <form id="post-form" onSubmit={this.handleSubmit.bind(this)}>
-                <textarea value={this.state.body} onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.user.fname}?`}/>
+                <textarea value={this.state.body} onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.current_user.fname}?`}/>
                 <button type="submit">Post</button>
             </form>
         )

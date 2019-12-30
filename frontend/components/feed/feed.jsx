@@ -41,7 +41,7 @@ export default class Feed extends React.Component {
                     </section>
 
                     <section id="feed-center">
-                        <CreatePostFormContainer user={this.props.user}/>
+                        <CreatePostFormContainer current_user={this.props.user}/>
                         <PostIndexContainer current_user={this.props.user}/>
                     </section>
 
