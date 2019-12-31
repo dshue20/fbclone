@@ -517,6 +517,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _comment_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./comment_form_container */ "./frontend/components/comments/comment_form_container.js");
+/* harmony import */ var _comment_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./comment_container */ "./frontend/components/comments/comment_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -540,6 +542,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var Comment =
 /*#__PURE__*/
 function (_React$Component) {
@@ -552,10 +556,12 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Comment).call(this, props));
     _this.createLike = _this.createLike.bind(_assertThisInitialized(_this));
+    _this.setReply = _this.setReply.bind(_assertThisInitialized(_this));
     _this.state = {
       numLikes: 0,
       liked: false,
-      comments: ''
+      comments: '',
+      reply: false
     };
     return _this;
   }
@@ -575,12 +581,50 @@ function (_React$Component) {
             numLikes: 0
           });
         }
-      }); //this.props.fetchComments('post', this.props.post.id).then(() => this.setState({comments: this.comments()}));
+      });
+      this.props.fetchComments('comment', this.props.comment.id).then(function () {
+        return _this2.setState({
+          comments: _this2.comments()
+        });
+      });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var _this3 = this;
+
+      //debugger;
+      if (Object.keys(prevProps.comments).length + 1 === Object.keys(this.props.comments).length && this.props.comments) {
+        this.props.fetchComments('comment', this.props.comment.id).then(function () {
+          return _this3.setState({
+            comments: _this3.comments(),
+            reply: false
+          });
+        });
+      }
+    }
+  }, {
+    key: "comments",
+    value: function comments() {
+      var _this4 = this;
+
+      if (this.props.comments) {
+        return Object.values(this.props.comments).map(function (comment) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            key: comment.id,
+            user: _this4.props.users[comment.user_id],
+            current_user: _this4.props.current_user,
+            comment: comment
+          });
+        });
+      } else {
+        return '';
+      }
     }
   }, {
     key: "createLike",
     value: function createLike(e) {
-      var _this3 = this;
+      var _this5 = this;
 
       e.preventDefault();
       this.props.createLike({
@@ -588,10 +632,10 @@ function (_React$Component) {
         likeable_id: this.props.comment.id,
         user_id: this.props.current_user.id
       }).then(function () {
-        return _this3.props.fetchLikes('comment', _this3.props.comment.id);
+        return _this5.props.fetchLikes('comment', _this5.props.comment.id);
       }).then(function () {
-        return _this3.setState({
-          numLikes: Object.keys(_this3.props.likes.likes).length,
+        return _this5.setState({
+          numLikes: Object.keys(_this5.props.likes.likes).length,
           liked: true
         });
       });
@@ -611,29 +655,71 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "displayReply",
+    value: function displayReply() {
+      if (this.state.reply) {
+        //debugger;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "reply"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          user_id: this.props.current_user.id,
+          commentable_type: "comment",
+          commentable_id: this.props.comment.id,
+          placeholder: 'reply'
+        }));
+      } else {
+        return;
+      }
+    }
+  }, {
+    key: "setReply",
+    value: function setReply(e) {
+      e.preventDefault();
+      this.setState({
+        reply: true
+      });
+    }
+  }, {
+    key: "indent",
+    value: function indent() {
+      if (this.props.comment.commentable_type === "comment") {
+        return "indent-reply";
+      } else {
+        return "no-indent-reply";
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       //debugger;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.indent()
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-comment-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/users/".concat(this.props.user.id),
         className: "post-author"
       }, this.props.user.fname + ' ' + this.props.user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-body-likes"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "comment-body"
-      }, this.props.comment.body), this.displayLikes()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.comment.body), this.displayLikes()))), this.displayReply(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-actions-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.createLike
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "comment-actions"
-      }, "Like")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Like")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.setReply
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "comment-actions"
-      }, "Comment"))));
+      }, "Reply"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
+      }, this.state.comments));
     }
   }]);
 
@@ -656,18 +742,25 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/like_actions */ "./frontend/actions/like_actions.js");
-/* harmony import */ var _comment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comment */ "./frontend/components/comments/comment.jsx");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _comment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comment */ "./frontend/components/comments/comment.jsx");
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(_ref, _ref2) {
-  var likes = _ref.entities.likes;
+  var _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      likes = _ref$entities.likes,
+      comments = _ref$entities.comments;
   var user = _ref2.user,
       current_user = _ref2.current_user,
       comment = _ref2.comment;
   return {
+    users: users,
     likes: likes,
+    comments: comments,
     user: user,
     current_user: current_user,
     comment: comment
@@ -681,11 +774,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchLikes: function fetchLikes(likeable_type, likeable_id) {
       return dispatch(Object(_actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["fetchLikes"])(likeable_type, likeable_id));
+    },
+    fetchComments: function fetchComments(commentable_type, commentable_id) {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["fetchComments"])(commentable_type, commentable_id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_comment__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_comment__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -777,11 +873,11 @@ function (_React$Component) {
         type: "text",
         onChange: this.update(),
         value: this.state.body,
-        placeholder: "Write a comment..."
+        placeholder: "Write a " + this.props.placeholder + "..."
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "comment-button",
         type: "submit"
-      }, "Comment"));
+      }, this.props.placeholder[0].toUpperCase() + this.props.placeholder.slice(1)));
     }
   }]);
 
@@ -812,12 +908,14 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, _ref) {
   var user_id = _ref.user_id,
       commentable_type = _ref.commentable_type,
-      commentable_id = _ref.commentable_id;
+      commentable_id = _ref.commentable_id,
+      placeholder = _ref.placeholder;
   //debugger;
   return {
     user_id: user_id,
     commentable_type: commentable_type,
-    commentable_id: commentable_id
+    commentable_id: commentable_id,
+    placeholder: placeholder
   };
 };
 
@@ -1921,13 +2019,14 @@ function (_React$Component) {
         type: "submit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCommentAlt"]
-      }), " Comment"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "post-comments"
-      }, this.state.comments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), " Comment"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
         user_id: this.props.current_user.id,
         commentable_type: "post",
-        commentable_id: this.props.post.id
-      }));
+        commentable_id: this.props.post.id,
+        placeholder: 'comment'
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
+      }, this.state.comments));
     }
   }]);
 

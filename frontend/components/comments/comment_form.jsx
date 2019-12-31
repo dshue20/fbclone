@@ -25,8 +25,8 @@ export default class CommentForm extends React.Component {
     render(){
         return (
             <form onSubmit={this.handleSubmit} className="comment-form">
-                <input className="comment-text" type="text" onChange={this.update()} value={this.state.body} placeholder="Write a comment..."/>
-                <button className="comment-button" type="submit">Comment</button>
+                <input className="comment-text" type="text" onChange={this.update()} value={this.state.body} placeholder={"Write a " + this.props.placeholder + "..."}/>
+                <button className="comment-button" type="submit">{this.props.placeholder[0].toUpperCase() + this.props.placeholder.slice(1)}</button>
             </form>
         )
     }

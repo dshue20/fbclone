@@ -68,3 +68,12 @@
     margin-left: 5px;
     margin-right: 4px;
 }
+
+.user-comment-body {
+    display: flex;
+    align-items: flex-end;
+}
+
+.reply, .indent-reply {
+    margin-left: 20px;
+}

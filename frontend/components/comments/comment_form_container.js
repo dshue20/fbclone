@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { createComment, deleteComment } from '../../actions/comment_actions';
 import CommentForm from './comment_form';
 
-const mapStateToProps = (state, {user_id, commentable_type, commentable_id}) => {
+const mapStateToProps = (state, {user_id, commentable_type, commentable_id, placeholder}) => {
     //debugger;
-    return { user_id, commentable_type, commentable_id }
+    return { user_id, commentable_type, commentable_id, placeholder }
 };
 
 const mapDispatchToProps = dispatch => {

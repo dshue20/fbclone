@@ -40,7 +40,7 @@ export default class PostIndexItem extends React.Component {
             // debugger;
             return Object.values(this.props.comments).map(comment => 
                 <CommentContainer key={comment.id} user={this.props.users[comment.user_id]} 
-                current_user={this.props.current_user}comment={comment} />)
+                current_user={this.props.current_user} comment={comment} />)
         } else {
             return ''
         }
@@ -124,10 +124,11 @@ export default class PostIndexItem extends React.Component {
                         <button className="post-like-comment-button" type="submit"><FontAwesomeIcon icon={faCommentAlt} /> Comment</button>
                     </form>
                 </div>
+                <CommentFormContainer user_id={this.props.current_user.id} commentable_type='post' 
+                    commentable_id={this.props.post.id} placeholder={'comment'}/>
                 <div className="post-comments">
                     {this.state.comments}
                 </div>
-                <CommentFormContainer user_id={this.props.current_user.id} commentable_type='post' commentable_id={this.props.post.id} />
             </li>
         )
     }
