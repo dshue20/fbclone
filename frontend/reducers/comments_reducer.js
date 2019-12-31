@@ -13,7 +13,7 @@ const commentsReducer = (state={}, action) => {
             delete newState[action.commentId];
             return newState;
         case RECEIVE_ALL_POSTS:
-            return Object.assign({}, state, action.posts.comments)
+            return Object.assign({}, state, action.posts.comments);
         default:
             return state;
     };

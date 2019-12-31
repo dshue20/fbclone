@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { faThumbsUp, faCommentAlt, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CommentFormContainer from '../comments/comment_form_container';
+import Comment from '../comments/comment';
 
 export default class PostIndexItem extends React.Component {
     constructor(props){
@@ -9,21 +11,38 @@ export default class PostIndexItem extends React.Component {
         this.createLike = this.createLike.bind(this);
         this.state = {
             numLikes: 0,
-            liked: false
+            liked: false,
+            comments: ''
         };
     }
 
     componentDidMount(){
         this.props.fetchLikes('post', this.props.post.id).then(() => 
-        {
-            if (this.props.likes.likes){
-                this.setState({numLikes: Object.keys(this.props.likes.likes).length})
-            } else {
-                this.setState({numLikes: 0})
+            {
+                if (this.props.likes.likes){
+                    this.setState({numLikes: Object.keys(this.props.likes.likes).length})
+                } else {
+                    this.setState({numLikes: 0})
+                }
             }
-        }
         );
-        //debugger;
+        this.props.fetchComments('post', this.props.post.id).then(() => this.setState({comments: this.comments()}));
+    }
+
+    componentDidUpdate(prevProps){
+        if (Object.keys(prevProps.comments).length + 1 === Object.keys(this.props.comments).length){
+            this.props.fetchComments('post', this.props.post.id).then(() => this.setState({comments: this.comments()}));
+        }
+    }
+    
+    comments(){
+        if (this.props.comments){
+            // debugger;
+            return Object.values(this.props.comments).map(comment => 
+                <Comment key={comment.id} user={this.props.users[comment.user_id]} comment={comment} />)
+        } else {
+            return ''
+        }
     }
 
     createLike(e){
@@ -104,6 +123,10 @@ export default class PostIndexItem extends React.Component {
                         <button className="post-like-comment-button" type="submit"><FontAwesomeIcon icon={faCommentAlt} /> Comment</button>
                     </form>
                 </div>
+                <div className="post-comments">
+                    {this.state.comments}
+                </div>
+                <CommentFormContainer user_id={this.props.current_user.id} commentable_type='post' commentable_id={this.props.post.id} />
             </li>
         )
     }

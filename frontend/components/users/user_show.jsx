@@ -31,12 +31,23 @@ class UserShow extends React.Component {
 
         let user_name;
         let user_bio;
+        let user_bday;
         if (this.props.user){
             user_name = <p className="user-show-name">{this.props.user.fname + ' ' + this.props.user.lname}</p>;
             user_bio = <UpdateUserBioContainer id="user-bio-button" user={this.props.user}/>;
+            user_bday = 
+                <div className="birthday-div">
+                    <FontAwesomeIcon icon={faBirthdayCake} />
+                    <p className="birthday-p">{this.props.user.birthday}</p>
+                </div>;
         } else {
             user_name = <p className="user-show-name">Loading...</p>;
             user_bio = <p id="user-bio-button">Loading...</p>
+            user_bday = 
+                <div className="birthday-div">
+                    <FontAwesomeIcon icon={faBirthdayCake} />
+                    <p className="birthday-p">Loading...</p>
+                </div>;
         }
         //debugger;
         return (
@@ -50,10 +61,7 @@ class UserShow extends React.Component {
                                 <FriendButtonContainer user={this.props.user} current_user={this.props.current_user} 
                                 friendships={this.props.friendships}/>
                             </div>
-                            <div className="birthday-div">
-                                <FontAwesomeIcon icon={faBirthdayCake} />
-                                <p className="birthday-p">{this.props.user.birthday}</p>
-                            </div>
+                            {user_bday}
                             <p className="user-bio-title">Bio</p>
                             {user_bio}
                         </section>

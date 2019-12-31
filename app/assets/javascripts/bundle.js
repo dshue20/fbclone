@@ -118,7 +118,7 @@ var receiveComment = function receiveComment(comment) {
 var receiveComments = function receiveComments(comments) {
   return {
     type: RECEIVE_COMMENTS,
-    comment: comment
+    comments: comments
   };
 };
 var removeComment = function removeComment(commentId) {
@@ -499,6 +499,183 @@ var App = function App() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./frontend/components/comments/comment.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/comments/comment.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var Comment = function Comment(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "comment-div"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(props.user.id),
+    className: "post-author"
+  }, props.user.fname + ' ' + props.user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "comment-body"
+  }, props.comment.body));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Comment);
+
+/***/ }),
+
+/***/ "./frontend/components/comments/comment_form.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/comments/comment_form.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CommentForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var CommentForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CommentForm, _React$Component);
+
+  function CommentForm(props) {
+    var _this;
+
+    _classCallCheck(this, CommentForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CommentForm).call(this, props));
+    _this.state = {
+      body: '',
+      user_id: _this.props.user_id,
+      commentable_type: _this.props.commentable_type,
+      commentable_id: _this.props.commentable_id
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(CommentForm, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault(); //debugger;
+
+      this.props.createComment(this.state).then(function () {
+        return _this2.setState({
+          body: ''
+        });
+      });
+    }
+  }, {
+    key: "update",
+    value: function update() {
+      var _this3 = this;
+
+      return function (e) {
+        return _this3.setState({
+          body: e.currentTarget.value
+        });
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit,
+        className: "comment-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "comment-text",
+        type: "text",
+        onChange: this.update(),
+        value: this.state.body,
+        placeholder: "Write a comment..."
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "comment-button",
+        type: "submit"
+      }, "Comment"));
+    }
+  }]);
+
+  return CommentForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+;
+
+/***/ }),
+
+/***/ "./frontend/components/comments/comment_form_container.js":
+/*!****************************************************************!*\
+  !*** ./frontend/components/comments/comment_form_container.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _comment_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comment_form */ "./frontend/components/comments/comment_form.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, _ref) {
+  var user_id = _ref.user_id,
+      commentable_type = _ref.commentable_type,
+      commentable_id = _ref.commentable_id;
+  //debugger;
+  return {
+    user_id: user_id,
+    commentable_type: commentable_type,
+    commentable_id: commentable_id
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createComment: function createComment(comment) {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__["createComment"])(comment));
+    },
+    deleteComment: function deleteComment(comment) {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__["deleteComment"])(comment));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_comment_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1377,6 +1554,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../comments/comment_form_container */ "./frontend/components/comments/comment_form_container.js");
+/* harmony import */ var _comments_comment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../comments/comment */ "./frontend/components/comments/comment.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1400,6 +1579,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var PostIndexItem =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1414,7 +1595,8 @@ function (_React$Component) {
     _this.createLike = _this.createLike.bind(_assertThisInitialized(_this));
     _this.state = {
       numLikes: 0,
-      liked: false
+      liked: false,
+      comments: ''
     };
     return _this;
   }
@@ -1434,12 +1616,48 @@ function (_React$Component) {
             numLikes: 0
           });
         }
-      }); //debugger;
+      });
+      this.props.fetchComments('post', this.props.post.id).then(function () {
+        return _this2.setState({
+          comments: _this2.comments()
+        });
+      });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var _this3 = this;
+
+      if (Object.keys(prevProps.comments).length + 1 === Object.keys(this.props.comments).length) {
+        this.props.fetchComments('post', this.props.post.id).then(function () {
+          return _this3.setState({
+            comments: _this3.comments()
+          });
+        });
+      }
+    }
+  }, {
+    key: "comments",
+    value: function comments() {
+      var _this4 = this;
+
+      if (this.props.comments) {
+        // debugger;
+        return Object.values(this.props.comments).map(function (comment) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            key: comment.id,
+            user: _this4.props.users[comment.user_id],
+            comment: comment
+          });
+        });
+      } else {
+        return '';
+      }
     }
   }, {
     key: "createLike",
     value: function createLike(e) {
-      var _this3 = this;
+      var _this5 = this;
 
       e.preventDefault();
       this.props.createLike({
@@ -1447,10 +1665,10 @@ function (_React$Component) {
         likeable_id: this.props.post.id,
         user_id: this.props.current_user.id
       }).then(function () {
-        return _this3.props.fetchLikes('post', _this3.props.post.id);
+        return _this5.props.fetchLikes('post', _this5.props.post.id);
       }).then(function () {
-        return _this3.setState({
-          numLikes: Object.keys(_this3.props.likes.likes).length,
+        return _this5.setState({
+          numLikes: Object.keys(_this5.props.likes.likes).length,
           liked: true
         });
       });
@@ -1545,7 +1763,13 @@ function (_React$Component) {
         type: "submit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCommentAlt"]
-      }), " Comment"))));
+      }), " Comment"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comments"
+      }, this.state.comments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        user_id: this.props.current_user.id,
+        commentable_type: "post",
+        commentable_id: this.props.post.id
+      }));
     }
   }]);
 
@@ -1568,26 +1792,29 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/like_actions */ "./frontend/actions/like_actions.js");
-/* harmony import */ var _post_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post_index_item */ "./frontend/components/posts/post_index_item.jsx");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _post_index_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./post_index_item */ "./frontend/components/posts/post_index_item.jsx");
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(_ref, _ref2) {
   var _ref$entities = _ref.entities,
+      users = _ref$entities.users,
       likes = _ref$entities.likes,
-      users = _ref$entities.users;
+      comments = _ref$entities.comments;
   var post = _ref2.post,
       user = _ref2.user,
       today = _ref2.today,
       current_user = _ref2.current_user;
-  //debugger;
   return {
+    users: users,
+    likes: likes,
+    comments: comments,
     post: post,
     user: user,
     today: today,
-    likes: likes,
-    users: users,
     current_user: current_user
   };
 };
@@ -1599,11 +1826,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchLikes: function fetchLikes(likeable_type, likeable_id) {
       return dispatch(Object(_actions_like_actions__WEBPACK_IMPORTED_MODULE_1__["fetchLikes"])(likeable_type, likeable_id));
+    },
+    fetchComments: function fetchComments(commentable_type, commentable_id) {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["fetchComments"])(commentable_type, commentable_id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_post_index_item__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_post_index_item__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -2221,6 +2451,7 @@ function (_React$Component) {
       }) : [];
       var user_name;
       var user_bio;
+      var user_bday;
 
       if (this.props.user) {
         user_name = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2230,6 +2461,13 @@ function (_React$Component) {
           id: "user-bio-button",
           user: this.props.user
         });
+        user_bday = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "birthday-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBirthdayCake"]
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "birthday-p"
+        }, this.props.user.birthday));
       } else {
         user_name = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "user-show-name"
@@ -2237,6 +2475,13 @@ function (_React$Component) {
         user_bio = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           id: "user-bio-button"
         }, "Loading...");
+        user_bday = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "birthday-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBirthdayCake"]
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "birthday-p"
+        }, "Loading..."));
       } //debugger;
 
 
@@ -2255,13 +2500,7 @@ function (_React$Component) {
         user: this.props.user,
         current_user: this.props.current_user,
         friendships: this.props.friendships
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "birthday-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBirthdayCake"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "birthday-p"
-      }, this.props.user.birthday)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      })), user_bday, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "user-bio-title"
       }, "Bio"), user_bio), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "user-show-right"
