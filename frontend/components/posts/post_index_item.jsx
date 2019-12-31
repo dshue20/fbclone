@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { faThumbsUp, faCommentAlt, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CommentFormContainer from '../comments/comment_form_container';
-import Comment from '../comments/comment';
+import CommentContainer from '../comments/comment_container';
 
 export default class PostIndexItem extends React.Component {
     constructor(props){
@@ -39,7 +39,7 @@ export default class PostIndexItem extends React.Component {
         if (this.props.comments){
             // debugger;
             return Object.values(this.props.comments).map(comment => 
-                <Comment key={comment.id} user={this.props.users[comment.user_id]} comment={comment} />)
+                <CommentContainer key={comment.id} user={this.props.users[comment.user_id]} comment={comment} />)
         } else {
             return ''
         }
