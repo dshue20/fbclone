@@ -39,7 +39,8 @@ export default class PostIndexItem extends React.Component {
         if (this.props.comments){
             // debugger;
             return Object.values(this.props.comments).map(comment => 
-                <CommentContainer key={comment.id} user={this.props.users[comment.user_id]} comment={comment} />)
+                <CommentContainer key={comment.id} user={this.props.users[comment.user_id]} 
+                current_user={this.props.current_user}comment={comment} />)
         } else {
             return ''
         }

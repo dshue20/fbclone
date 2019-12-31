@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { createLike, fetchLikes } from '../../actions/like_actions';
 import Comment from './comment';
 
-const mapStateToProps = (state, {user, comment}) => {
-    return { user, comment }
+const mapStateToProps = ({entities: {likes}}, {user, current_user, comment}) => {
+    return { likes, user, current_user, comment }
 };
 
 const mapDispatchToProps = dispatch => {
