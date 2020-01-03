@@ -1,7 +1,7 @@
 # Fakebook
 
 [Fakebook](https://derek-shue-fb-clone.herokuapp.com/) is a Facebook clone complete with functionality for making posts, adding and searching for friends, and liking and commenting on friends' posts. 
-![](<img src="app/assets/images/fb-logo-2.png" class="readme-logo" />)
+<img src="app/assets/images/fb-logo-2.png" class="readme-logo" />
 
 ## Stack
 * Ruby on Rails
@@ -14,6 +14,7 @@
 * HTML
 * CSS
 * Heroku
+
 Rails was used on the backend with a Postgres server and jQuery for handling view pages. Javascript (bundled with Webpack) was used on the frontend alongside React/Redux. HTML and CSS were used for styling purposes, and final deployment took place on Heroku.
 
 ## Newsfeed
