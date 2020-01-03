@@ -23,11 +23,11 @@ export default class Feed extends React.Component {
         //debugger;
         return (
             <div>
-                <Header user={this.props.user} logout={this.props.logout}/>
+                <Header current_user={this.props.current_user} logout={this.props.logout}/>
 
                 <section id="main-feed">
                     <section id="feed-left">
-                        <p className="feed-left-text" id="feed-left-name">{this.props.user.fname} {this.props.user.lname}</p>
+                        <p className="feed-left-text" id="feed-left-name">{this.props.current_user.fname} {this.props.current_user.lname}</p>
                         <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="news-icon" icon={faNewspaper} />News Feed</a></div>
                         <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="messenger-icon" icon={faFacebookMessenger} />Messenger</a></div>
                         <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="video-icon" icon={faVideo} />Watch</a></div>
@@ -41,8 +41,8 @@ export default class Feed extends React.Component {
                     </section>
 
                     <section id="feed-center">
-                        <CreatePostFormContainer current_user={this.props.user}/>
-                        <PostIndexContainer current_user={this.props.user}/>
+                        <CreatePostFormContainer current_user={this.props.current_user}/>
+                        <PostIndexContainer current_user={this.props.current_user}/>
                     </section>
 
                     <section id="feed-right">

@@ -5,7 +5,7 @@ import Feed from './feed';
 const mapStateToProps = ({ session, entities: { users } }) => {
   //debugger;
   return {
-    user: users[session.id]
+    current_user: users[session.id]
   };
 };
 

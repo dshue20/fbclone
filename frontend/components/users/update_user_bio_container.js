@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import UpdateUserBio from './update_user_bio';
 import { updateUser } from '../../actions/user_actions';
 
-const mapStateToProps = (state, {user}) => {
+const mapStateToProps = (state, {user, current_user}) => {
     return {
-        user
+        user, current_user
     }
 };
 

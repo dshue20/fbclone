@@ -35,7 +35,7 @@ class UserShow extends React.Component {
         let user_bday;
         if (this.props.user){
             user_name = <p className="user-show-name">{this.props.user.fname + ' ' + this.props.user.lname}</p>;
-            user_bio = <UpdateUserBioContainer id="user-bio-button" user={this.props.user}/>;
+            user_bio = <UpdateUserBioContainer id="user-bio-button" user={this.props.user} current_user={this.props.current_user}/>;
             user_bday = 
                 <div className="birthday-div">
                     <FontAwesomeIcon icon={faBirthdayCake} />
@@ -53,7 +53,7 @@ class UserShow extends React.Component {
         //debugger;
         return (
             <div>
-                <Header user={this.props.current_user} logout={this.props.logout}/>
+                <Header user={this.props.user} current_user={this.props.current_user} logout={this.props.logout}/>
                 <div className="user-show-container">
                     <div className="user-show">
                         <section className="user-bio-section">

@@ -1012,7 +1012,7 @@ function (_React$Component) {
     value: function render() {
       //debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        user: this.props.user,
+        current_user: this.props.current_user,
         logout: this.props.logout
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "main-feed"
@@ -1021,7 +1021,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "feed-left-text",
         id: "feed-left-name"
-      }, this.props.user.fname, " ", this.props.user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.current_user.fname, " ", this.props.current_user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
@@ -1095,9 +1095,9 @@ function (_React$Component) {
       }, "See More...")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "feed-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        current_user: this.props.user
+        current_user: this.props.current_user
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_index_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        current_user: this.props.user
+        current_user: this.props.current_user
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "feed-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1155,7 +1155,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
       users = _ref.entities.users;
   //debugger;
   return {
-    user: users[session.id]
+    current_user: users[session.id]
   };
 };
 
@@ -1197,7 +1197,10 @@ var Header = function Header(props) {
     className: "fb-icon"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: window.fb_icon
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    user: props.user,
+    current_user: props.current_user
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "feed-search-icon",
@@ -1205,9 +1208,9 @@ var Header = function Header(props) {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     id: "right-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/users/".concat(props.user.id),
+    to: "/users/".concat(props.current_user.id),
     className: "right-header-text"
-  }, props.user.fname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.current_user.fname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/feed",
     className: "right-header-text"
   }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1301,21 +1304,27 @@ function (_React$Component) {
   }
 
   _createClass(Search, [{
-    key: "update",
-    value: function update(e) {
-      var searchString = e.currentTarget.value;
-
-      if (searchString != '') {
-        this.setState({
-          usersSearch: Object.values(this.props.users).filter(function (user) {
-            return (user.fname + ' ' + user.lname).slice(0, searchString.length).toLowerCase() === searchString.toLowerCase();
-          })
-        });
-      } else {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.user != this.props.user) {
         this.setState({
           usersSearch: []
         });
       }
+
+      ;
+    }
+  }, {
+    key: "update",
+    value: function update(e) {
+      var searchString = e.currentTarget.value;
+      searchString === '' ? this.setState({
+        usersSearch: []
+      }) : this.setState({
+        usersSearch: Object.values(this.props.users).filter(function (user) {
+          return (user.fname + ' ' + user.lname).slice(0, searchString.length).toLowerCase() === searchString.toLowerCase();
+        })
+      });
     }
   }, {
     key: "render",
@@ -1324,7 +1333,7 @@ function (_React$Component) {
         className: "search-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update,
-        className: "feed-search",
+        id: "feed-search",
         type: "text",
         placeholder: "Search"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -1334,6 +1343,7 @@ function (_React$Component) {
           key: user.id,
           className: "search-result"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          className: "search-link",
           to: "/users/".concat(user.id)
         }, user.fname + ' ' + user.lname));
       })));
@@ -1362,14 +1372,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref) {
+var mapStateToProps = function mapStateToProps(_ref, _ref2) {
   var users = _ref.entities.users;
+  var user = _ref2.user,
+      current_user = _ref2.current_user;
   //debugger;
   return {
     userNames: Object.values(users).map(function (user) {
       return user.fname + ' ' + user.lname;
     }),
-    users: users
+    users: users,
+    user: user,
+    current_user: current_user
   };
 };
 
@@ -2630,10 +2644,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UpdateUserBio; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _posts_create_post_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../posts/create_post_form_container */ "./frontend/components/posts/create_post_form_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -2653,7 +2664,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var UpdateUserBio =
 /*#__PURE__*/
 function (_React$Component) {
@@ -2666,18 +2676,30 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdateUserBio).call(this, props));
     _this.state = _this.props.user;
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); //this.updateBio = this.updateBio.bind(this);
-
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.updateBio = _this.updateBio.bind(_assertThisInitialized(_this));
+    _this.renderValue = _this.renderValue.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(UpdateUserBio, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.user != this.props.user) {
+        this.setState(this.props.user);
+      }
+
+      ;
+    }
+  }, {
     key: "updateBio",
     value: function updateBio() {
       var _this2 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, 'bio', e.currentTarget.value));
+        _this2.setState({
+          bio: e.currentTarget.value
+        });
       };
     }
   }, {
@@ -2687,21 +2709,41 @@ function (_React$Component) {
       this.props.updateUser(this.state);
     }
   }, {
+    key: "renderValue",
+    value: function renderValue() {
+      if (this.props.user === this.props.current_user) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit,
+          id: "user-bio-form"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          readonly: true,
+          className: "user-bio-text",
+          onChange: this.updateBio(),
+          cols: "30",
+          rows: "10",
+          value: this.state.bio
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "submit"
+        }, "Edit"));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit,
+          id: "user-bio-form"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          readonly: true,
+          className: "user-bio-text",
+          onChange: this.updateBio(),
+          cols: "30",
+          rows: "10",
+          value: this.state.bio
+        }));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       //debugger;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit,
-        id: "user-bio-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        className: "user-bio-text",
-        onChange: this.updateBio(),
-        cols: "30",
-        rows: "10",
-        value: this.props.user.bio
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, "Edit"));
+      return this.renderValue();
     }
   }]);
 
@@ -2729,9 +2771,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, _ref) {
-  var user = _ref.user;
+  var user = _ref.user,
+      current_user = _ref.current_user;
   return {
-    user: user
+    user: user,
+    current_user: current_user
   };
 };
 
@@ -2844,7 +2888,8 @@ function (_React$Component) {
         }, this.props.user.fname + ' ' + this.props.user.lname);
         user_bio = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_update_user_bio_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
           id: "user-bio-button",
-          user: this.props.user
+          user: this.props.user,
+          current_user: this.props.current_user
         });
         user_bday = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "birthday-div"
@@ -2871,7 +2916,8 @@ function (_React$Component) {
 
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_feed_header__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        user: this.props.current_user,
+        user: this.props.user,
+        current_user: this.props.current_user,
         logout: this.props.logout
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-show-container"

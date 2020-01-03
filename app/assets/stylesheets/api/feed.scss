@@ -35,9 +35,14 @@
     margin-left: 2px;
     height: 20px;
     font-weight: bold;
+    padding-top: 2px;
 }
 
-.feed-search {
+.search-link {
+    padding: 10px;
+}
+
+#feed-search {
     height: 19px;
     font-size: 14px;
     width: 95%;
@@ -82,6 +87,7 @@
     display: flex;
     background-color: #edf0f5;
     padding-top: 10px;
+    height: 100vh;
 }
 
 #main-feed > section {
