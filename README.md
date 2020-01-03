@@ -1,7 +1,8 @@
 # Fakebook
 
 <img src="app/assets/images/fb-logo-2.png" height=100px width=100px />
-[I'm an inline-style link](https://www.google.com) is a Facebook clone complete with functionality for making posts, adding and searching for friends, and liking and commenting on friends' posts. 
+
+[Fakebook](https://derek-shue-fb-clone.herokuapp.com/) is a Facebook clone complete with functionality for making posts, adding and searching for friends, and liking and commenting on friends' posts. 
 
 ## Stack
 * Ruby on Rails
