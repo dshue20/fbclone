@@ -2114,7 +2114,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       //debugger;
-      var post_body = this.props.post.body.length < 50 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      var post_body = this.props.post.body.length < 100 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post-body-short"
       }, this.props.post.body) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post-body-long"
@@ -3473,7 +3473,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_3___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

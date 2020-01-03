@@ -75,7 +75,7 @@ export default class PostIndexItem extends React.Component {
 
     render(){
         //debugger;
-        const post_body = (this.props.post.body.length < 50)?  
+        const post_body = (this.props.post.body.length < 100)?  
             <p className="post-body-short">{this.props.post.body}</p> : 
             <p className="post-body-long">{this.props.post.body}</p>
         const date_object = new Date(this.props.post.updated_at);
