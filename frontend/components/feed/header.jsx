@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import SearchContainer from './search_container';
 
 const Header = props => {
     //debugger;
     return (
         <header id="feed-header">
             <a href="#" className="fb-icon"><img src={window.fb_icon}/></a>
-            <input className="feed-search" type="text" placeholder=" Search"/>
+            < SearchContainer />
             <a href="#"><img className="feed-search-icon" src={window.feed_search}/></a>
             <section id="right-header">
                 <Link to={`/users/${props.user.id}`} className="right-header-text">{props.user.fname}</Link>

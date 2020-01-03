@@ -1,6 +1,7 @@
 class Api::CommentsController < ApplicationController
     def index
-        @comments = Comment.where(commentable_type: params[:commentable_type], commentable_id: params[:commentable_id])
+        #@comments = Comment.where(commentable_type: params[:commentable_type], commentable_id: params[:commentable_id])
+        @comments = Comment.all
         render :index
     end
 
@@ -26,6 +27,6 @@ class Api::CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:body, :commentable_type, :commentable_id, :user_id)
+        params.require(:comment).permit(:body, :commentable_type, :commentable_id, :user_id, :like_ids, :comment_ids)
     end
 end

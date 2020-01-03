@@ -16,10 +16,11 @@
             end
         end
     end
+    #add nested comments
     post.comments.each do |comment|
         json.comments do
             json.set! comment.id do
-                json.extract! comment, :id, :body, :commentable_id, :commentable_type, :user_id
+                json.extract! comment, :id, :body, :commentable_id, :commentable_type, :user_id, :like_ids, :comment_ids
             end
         end
     end

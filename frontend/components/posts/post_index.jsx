@@ -16,6 +16,7 @@ class PostIndex extends React.Component {
                 () => this.props.fetchFriendships()).then(
                     () => this.setState({ friendships: this.getFriendships() })).then(
                         () => this.setState({ friendIds: this.getFriendIds() }));
+        this.props.fetchComments();
     }
 
     getFriendships(){

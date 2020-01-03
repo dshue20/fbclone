@@ -14,7 +14,8 @@ class UserShow extends React.Component {
 
     componentDidMount(){
         this.props.fetchPosts();
-        this.props.fetchUsers().then(() => this.props.fetchFriendships())
+        this.props.fetchUsers().then(() => this.props.fetchFriendships());
+        this.props.fetchComments();
     }
 
     componentDidUpdate(prevProps){
@@ -71,7 +72,7 @@ class UserShow extends React.Component {
                                 {user_posts.reverse().map(post => 
                                     <PostIndexItemContainer key={post.id} post={post} 
                                     user={this.props.allUsers[post.user_id]} today={new Date().toDateString()} 
-                                    current_user={this.props.current_user} />
+                                    current_user={this.props.current_user} allComments={this.props.comments}/>
                                 )}
                             </ul>
                         </section>

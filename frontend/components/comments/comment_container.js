@@ -4,6 +4,7 @@ import { fetchComments } from '../../actions/comment_actions';
 import Comment from './comment';
 
 const mapStateToProps = ({entities: {users, likes, comments}}, {user, current_user, comment}) => {
+    //debugger;
     return { users, likes, comments, user, current_user, comment }
 };
 

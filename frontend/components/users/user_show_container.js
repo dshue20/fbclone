@@ -5,15 +5,16 @@ import {deletePost, updatePost, fetchPosts} from '../../actions/post_actions';
 import { logout } from '../../actions/session_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import { fetchFriendships } from '../../actions/friendship_actions';
+import { fetchComments } from '../../actions/comment_actions';
 
-const mapStateToProps = (state, ownProps) => {
-    //debugger;
+const mapStateToProps = ({entities: {users, posts, friendships, comments}, session}, ownProps) => {
     return {
-        user: state.entities.users[ownProps.match.params.userId],
-        posts: state.entities.posts,
-        current_user: state.entities.users[state.session.id],
-        friendships: state.entities.friendships,
-        allUsers: state.entities.users
+        user: users[ownProps.match.params.userId],
+        posts: posts,
+        current_user: users[session.id],
+        friendships: friendships,
+        allUsers: users,
+        comments
     }
 };
 
@@ -24,7 +25,8 @@ const mapDispatchToProps = dispatch => {
         fetchPosts: () => dispatch(fetchPosts()),
         logout: () => dispatch(logout()),
         fetchUsers: () => dispatch(fetchUsers()),
-        fetchFriendships: (requestor_id, receiver_id) => dispatch(fetchFriendships(requestor_id, receiver_id))
+        fetchFriendships: (requestor_id, receiver_id) => dispatch(fetchFriendships(requestor_id, receiver_id)),
+        fetchComments: () => dispatch(fetchComments())
     }
 }
 

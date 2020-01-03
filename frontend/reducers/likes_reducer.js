@@ -1,5 +1,6 @@
 import { RECEIVE_LIKE, RECEIVE_LIKES, REMOVE_LIKE } from '../actions/like_actions';
 import { RECEIVE_ALL_POSTS } from '../actions/post_actions';
+import { RECEIVE_COMMENTS } from '../actions/comment_actions';
 
 const likesReducer = (state={}, action) => {
     Object.freeze(state);
@@ -14,6 +15,8 @@ const likesReducer = (state={}, action) => {
             return newState;
         case RECEIVE_ALL_POSTS:
             return Object.assign({}, state, action.posts.likes)
+        case RECEIVE_COMMENTS:
+            return Object.assign({}, state, action.comments.likes)
         default:
             return state;
     };

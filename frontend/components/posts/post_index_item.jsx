@@ -9,38 +9,27 @@ export default class PostIndexItem extends React.Component {
     constructor(props){
         super(props);
         this.createLike = this.createLike.bind(this);
+        this.likeButton = this.likeButton.bind(this);
         this.state = {
-            numLikes: 0,
+            numLikes: this.props.post.like_ids.length,
             liked: false,
-            comments: ''
         };
     }
 
     componentDidMount(){
-        this.props.fetchLikes('post', this.props.post.id).then(() => 
-            {
-                if (this.props.likes.likes){
-                    this.setState({numLikes: Object.keys(this.props.likes.likes).length})
-                } else {
-                    this.setState({numLikes: 0})
-                }
-            }
-        );
-        this.props.fetchComments('post', this.props.post.id).then(() => this.setState({comments: this.comments()}));
-    }
-
-    componentDidUpdate(prevProps){
-        if (Object.keys(prevProps.comments).length + 1 === Object.keys(this.props.comments).length){
-            this.props.fetchComments('post', this.props.post.id).then(() => this.setState({comments: this.comments()}));
-        }
-    }
+        const likes = Object.values(this.props.likes).filter(like => like.likeable_id === this.props.post.id && like.likeable_type === 'Post');
+        if (likes.filter(like => like.user_id === this.props.current_user.id).length > 0){
+            this.setState({ liked: true })
+        };
+    };
     
     comments(){
-        if (this.props.comments){
-            // debugger;
-            return Object.values(this.props.comments).map(comment => 
+        const filteredComments = Object.values(this.props.comments).filter(comment => comment.commentable_id === this.props.post.id && comment.commentable_type === 'Post');
+        if (filteredComments){
+            return filteredComments.map(comment => 
                 <CommentContainer key={comment.id} user={this.props.users[comment.user_id]} 
-                current_user={this.props.current_user} comment={comment} />)
+                current_user={this.props.current_user} comment={comment} comments={this.props.comments}/>
+            )
         } else {
             return ''
         }
@@ -49,18 +38,17 @@ export default class PostIndexItem extends React.Component {
     createLike(e){
         e.preventDefault();
         this.props.createLike({
-            likeable_type: 'post',
+            likeable_type: 'Post',
             likeable_id: this.props.post.id,
             user_id: this.props.current_user.id
-        }).then(() => this.props.fetchLikes('post', this.props.post.id)).then(() => 
-        this.setState({
-            numLikes: Object.keys(this.props.likes.likes).length,
+        }).then(() => this.setState({
+            numLikes: this.state.numLikes + 1,
             liked: true
         }));
     }
 
     likeButton(){
-        if (this.props.post.like_ids.length > 0 || this.state.liked){
+        if (this.state.liked){
             return <button className="liked-button"><FontAwesomeIcon icon={faThumbsUp} /> Like</button>
         }else {
             return <form onSubmit={this.createLike}>
@@ -124,10 +112,10 @@ export default class PostIndexItem extends React.Component {
                         <button className="post-like-comment-button" type="submit"><FontAwesomeIcon icon={faCommentAlt} /> Comment</button>
                     </form>
                 </div>
-                <CommentFormContainer user_id={this.props.current_user.id} commentable_type='post' 
-                    commentable_id={this.props.post.id} placeholder={'comment'}/>
+                <CommentFormContainer user_id={this.props.current_user.id} commentable_type='Post' 
+                    commentable_id={this.props.post.id} placeholder={'Comment'}/>
                 <div className="post-comments">
-                    {this.state.comments}
+                    {this.comments()}
                 </div>
             </li>
         )

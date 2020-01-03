@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_30_180622) do
+ActiveRecord::Schema.define(version: 2020_01_02_184548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 2019_12_30_180622) do
   create_table "comments", force: :cascade do |t|
     t.string "body", null: false
     t.integer "user_id", null: false
-    t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commentable_id"], name: "index_comments_on_commentable_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 2019_12_30_180622) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "likeable_type", null: false
-    t.integer "likeable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.index ["likeable_id"], name: "index_likes_on_likeable_id"
+    t.string "likeable_type"
+    t.bigint "likeable_id"
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
   end
 
   create_table "posts", force: :cascade do |t|

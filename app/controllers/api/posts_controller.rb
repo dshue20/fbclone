@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
     def index
-        @posts = Post.all
+        @posts = Post.all.includes(:likes, :comments)
+        # @comments = posts.comments
         render :index
     end
 
