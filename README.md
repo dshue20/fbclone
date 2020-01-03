@@ -67,10 +67,10 @@ To allow users being able to post on other users' profiles, created posts need t
 
 Perhaps the most difficult feature to incorporate into this application was friendships. Please compare the following images with the image above. 
 
-<img src="app/assets/images/readme/add_friend.png" />
-<img src="app/assets/images/readme/pending.png" />
-<img src="app/assets/images/readme/accept_reject.png" />
-<img src="app/assets/images/readme/friends.png" />
+<img src="app/assets/images/readme/add_friend.png" heigh=70px />
+<img src="app/assets/images/readme/pending.png" heigh=70px />
+<img src="app/assets/images/readme/accept_reject.png" heigh=70px />
+<img src="app/assets/images/readme/friends.png" heigh=70px />
 
 These images show all the possible states that friendships can be in: either there is no existing friendship or it is pending, accepted, or rejected. (A rejected friendship will show no button so that no one's feelings will get hurt). The logged in user's own profile will also not display a button.
 
