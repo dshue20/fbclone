@@ -73,7 +73,7 @@ export default class FriendButton extends React.Component {
 
     getFriendship(){
         return (
-            Object.values(this.props.friendships.friendships).filter(
+            Object.values(this.props.friendships).filter(
                 friendship => (friendship.requestor_id === this.props.user.id && friendship.receiver_id === this.props.current_user.id) 
                 || (friendship.receiver_id === this.props.user.id && friendship.requestor_id === this.props.current_user.id))[0]
         )

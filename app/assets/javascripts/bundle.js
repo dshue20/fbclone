@@ -1528,7 +1528,7 @@ function (_React$Component) {
     value: function getFriendship() {
       var _this4 = this;
 
-      return Object.values(this.props.friendships.friendships).filter(function (friendship) {
+      return Object.values(this.props.friendships).filter(function (friendship) {
         return friendship.requestor_id === _this4.props.user.id && friendship.receiver_id === _this4.props.current_user.id || friendship.receiver_id === _this4.props.user.id && friendship.requestor_id === _this4.props.current_user.id;
       })[0];
     }
@@ -1917,7 +1917,7 @@ var mapStateToProps = function mapStateToProps(state, _ref) {
   return {
     posts: state.entities.posts,
     users: state.entities.users,
-    friendships: state.entities.friendships.friendships,
+    friendships: state.entities.friendships,
     current_user: current_user
   };
 };

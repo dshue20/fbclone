@@ -10,7 +10,7 @@ const mapStateToProps = (state, {current_user}) => {
     return {
         posts: state.entities.posts,
         users: state.entities.users,
-        friendships: state.entities.friendships.friendships,
+        friendships: state.entities.friendships,
         current_user
     }
 };
