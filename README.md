@@ -1,7 +1,7 @@
 # Fakebook
 
 [Fakebook](https://derek-shue-fb-clone.herokuapp.com/) is a Facebook clone complete with functionality for making posts, adding and searching for friends, and liking and commenting on friends' posts. 
-<img src="app/assets/images/fb-logo-2.png" height=100px width=100px />
+<img src="app/assets/images/fb-logo-2.png" height=50px width=50px />
 
 ## Stack
 * Ruby on Rails
