@@ -30,7 +30,7 @@ export default class UpdateUserBio extends React.Component {
         if (this.props.user === this.props.current_user){
             return (
                 <form onSubmit={this.handleSubmit} id="user-bio-form">
-                    <textarea readonly className="user-bio-text" onChange={this.updateBio()} cols="30" rows="10" value={this.state.bio}/>
+                    <textarea className="user-bio-text" onChange={this.updateBio()} cols="30" rows="10" value={this.state.bio}/>
                     <button type="submit">Edit</button>
                 </form>
             )

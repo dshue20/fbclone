@@ -2716,7 +2716,6 @@ function (_React$Component) {
           onSubmit: this.handleSubmit,
           id: "user-bio-form"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-          readonly: true,
           className: "user-bio-text",
           onChange: this.updateBio(),
           cols: "30",
