@@ -18,12 +18,21 @@ export default class SignupForm extends React.Component {
             year: ""
         };
         this.handleLogin = this.handleLogin.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
     }
 
     handleLogin(e) {
         e.preventDefault();
         const user = Object.assign({}, {email: this.state.email, password: this.state.password});
+        this.props.login(user);
+        if (!this.props.errors) {
+            this.props.history.push("/");
+        }
+    }
+
+    demoLogin(){
+        const user = Object.assign({}, {email: "bulbasaur@pokemon.com", password: "razorleaf"});
         this.props.login(user);
         if (!this.props.errors) {
             this.props.history.push("/");
@@ -88,6 +97,10 @@ export default class SignupForm extends React.Component {
                         
                         <button className="login-button" type="submit">Log In</button>
                     </form>
+                    {/* <form onSubmit={this.props.login(Object.assign({}, {email: "bulbasaur@pokemon.com", password: "razorleaf"}))}>
+                        <button className="login-button" type="submit"> Demo Log In</button>
+                    </form> */}
+                    <button className="login-button" onClick={this.demoLogin}> Demo Log In</button>
                 </header>
 
                 

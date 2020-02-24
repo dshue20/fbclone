@@ -2369,6 +2369,7 @@ function (_React$Component) {
       year: ""
     };
     _this.handleLogin = _this.handleLogin.bind(_assertThisInitialized(_this));
+    _this.demoLogin = _this.demoLogin.bind(_assertThisInitialized(_this));
     _this.handleSignup = _this.handleSignup.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -2380,6 +2381,19 @@ function (_React$Component) {
       var user = Object.assign({}, {
         email: this.state.email,
         password: this.state.password
+      });
+      this.props.login(user);
+
+      if (!this.props.errors) {
+        this.props.history.push("/");
+      }
+    }
+  }, {
+    key: "demoLogin",
+    value: function demoLogin() {
+      var user = Object.assign({}, {
+        email: "bulbasaur@pokemon.com",
+        password: "razorleaf"
       });
       this.props.login(user);
 
@@ -2456,7 +2470,10 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "login-button",
         type: "submit"
-      }, "Log In"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, "Log In")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "login-button",
+        onClick: this.demoLogin
+      }, " Demo Log In")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "login-light-blue"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderErrors()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "login-body"
@@ -49100,7 +49117,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
