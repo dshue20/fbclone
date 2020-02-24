@@ -2737,7 +2737,7 @@ function (_React$Component) {
           onChange: this.updateBio(),
           cols: "30",
           rows: "10",
-          value: this.state.bio
+          value: this.state.bio || ""
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit"
         }, "Edit"));
@@ -2751,7 +2751,7 @@ function (_React$Component) {
           onChange: this.updateBio(),
           cols: "30",
           rows: "10",
-          value: this.state.bio
+          value: this.state.bio || ""
         }));
       }
     }
@@ -2789,6 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, _ref) {
   var user = _ref.user,
       current_user = _ref.current_user;
+  debugger;
   return {
     user: user,
     current_user: current_user
