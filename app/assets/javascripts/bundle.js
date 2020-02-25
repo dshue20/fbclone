@@ -1242,7 +1242,7 @@ var Header = function Header(props) {
     className: "feed-right-header-icon",
     src: window.dropdown_icon
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "login-button",
+    className: "login-button logout-button",
     onClick: props.logout
   }, "Log Out")));
 };
@@ -49121,7 +49121,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

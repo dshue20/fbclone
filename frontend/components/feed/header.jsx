@@ -18,7 +18,7 @@ const Header = props => {
                 <a href="#"><img className="feed-right-header-icon" src={window.notif_icon}/></a>
                 <a href="#"><img className="feed-right-header-icon" src={window.help_icon}/></a>
                 <a href="#"><img className="feed-right-header-icon" src={window.dropdown_icon}/></a>
-                <button className="login-button" onClick={props.logout}>Log Out</button>
+                <button className="login-button logout-button" onClick={props.logout}>Log Out</button>
             </section>
         </header>
     )
