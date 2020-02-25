@@ -2789,7 +2789,6 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, _ref) {
   var user = _ref.user,
       current_user = _ref.current_user;
-  debugger;
   return {
     user: user,
     current_user: current_user
@@ -2943,6 +2942,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "user-bio-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ppic"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "add-friend"
+      }, "Add Picture")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-name-add-friend"
       }, user_name, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_friendships_friend_button_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         user: this.props.user,
@@ -49118,7 +49121,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

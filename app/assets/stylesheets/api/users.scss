@@ -12,6 +12,17 @@
     width: 60%;
 }
 
+.ppic {
+    height: 27vh;
+    border: 1px solid lightgray;
+    border-radius: 70px;
+    width: 30vh;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .user-name-add-friend {
     display: flex;
     align-items: center;
