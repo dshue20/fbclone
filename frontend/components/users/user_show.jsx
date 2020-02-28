@@ -57,9 +57,6 @@ class UserShow extends React.Component {
                 <div className="user-show-container">
                     <div className="user-show">
                         <section className="user-bio-section">
-                            <div className="ppic">
-                                <button className="add-friend">Add Picture</button>
-                            </div>
                             <div className="user-name-add-friend">
                                 {user_name}
                                 <FriendButtonContainer user={this.props.user} current_user={this.props.current_user} 
