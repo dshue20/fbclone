@@ -471,10 +471,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _splash_signup_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./splash/signup_form_container */ "./frontend/components/splash/signup_form_container.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _feed_feed_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./feed/feed_container */ "./frontend/components/feed/feed_container.js");
-/* harmony import */ var _users_user_show_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./users/user_show_container */ "./frontend/components/users/user_show_container.js");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _feed_feed_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./feed/feed_container */ "./frontend/components/feed/feed_container.js");
+/* harmony import */ var _users_user_show_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users/user_show_container */ "./frontend/components/users/user_show_container.js");
  //import LoginFormContainer from "./splash/login_form_container";
 
 
@@ -482,19 +481,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/",
     component: _splash_signup_form_container__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     exact: true,
     path: "/feed",
-    component: _feed_feed_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+    component: _feed_feed_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     path: "/users/:userId",
-    component: _users_user_show_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _users_user_show_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }));
 };
 
@@ -1031,68 +1029,47 @@ function (_React$Component) {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faNewspaper"]
       }), "News Feed")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.current_user.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
         className: "feed-left-icon",
-        id: "messenger-icon",
-        icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faFacebookMessenger"]
-      }), "Messenger")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "feed-left-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
-        className: "feed-left-icon",
-        id: "video-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faVideo"]
-      }), "Watch")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "user-icon",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faUser"]
+      }), "My Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "feed-left-text",
         id: "feed-left-explore"
       }, "Explore"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "fb-icon-left",
-        id: "feed-left-fb-icon",
-        src: window.fb_icon2
-      }), "Welcome")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "feed-left-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
+        href: "http://www.derekshue.com/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
         className: "feed-left-icon",
-        id: "groups-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faUsers"]
-      }), "Groups")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "portfolio-icon",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faGlobe"]
+      }), "Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
+        href: "https://www.linkedin.com/in/derek-shue-641918177/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
         className: "feed-left-icon",
-        id: "pages-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faFlag"]
-      }), "Pages")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "linkedin-icon",
+        icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faLinkedin"]
+      }), "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
+        href: "https://github.com/dshue20/fbclone"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
         className: "feed-left-icon",
-        id: "fundraiser-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCoins"]
-      }), "Fundraisers")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faGithub"]
+      }), "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
+        href: "http://www.derekshue.com/images/Shue_Derek_Resume.pdf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
         className: "feed-left-icon",
-        id: "events-icon",
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCalendarAlt"]
-      }), "Events")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        id: "feed-left-see-more",
-        className: "feed-left-text",
-        href: "#"
-      }, "See More...")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "resume-icon",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faFile"]
+      }), "R\xE9sum\xE9"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "feed-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
         current_user: this.props.current_user
@@ -1108,19 +1085,21 @@ function (_React$Component) {
         href: "#"
       }, "Rails"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, "Java"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
       }, "Javascript"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
       }, "React"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, "Redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "Redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "MongoDB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
       }, "Python"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, "C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "Express"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, "C++"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Node.js"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "GraphQL"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: "feed-right-fb-c"
       }, "Fakebook \xA9 2019"))));
     }

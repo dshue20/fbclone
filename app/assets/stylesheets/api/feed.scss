@@ -107,31 +107,31 @@
 }
 
 #feed-right {
-    width: 16%;
+    width: 19%;
 }
 
 #news-icon {
     color: #0084DB;
 }
 
-#messenger-icon, #groups-icon {
-    color: #0084FF;
+#user-icon {
+    color: gray;
 }
 
-#video-icon, #events-icon {
-    color: #c4302b;
+// #portfolio-icon {
+//     color: steelblue;
+// }
+
+#linkedin-icon {
+    color: #0e76a8;
+}
+
+#resume-icon {
+    color: steelblue;
 }
 
 .fb-icon-left {
     height: 16px;
-}
-
-#pages-icon {
-    color: #F5BB3E;
-}
-
-#fundraiser-icon {
-    color: gold;
 }
 
 .feed-left-icon, #feed-left-fb-icon {
@@ -144,13 +144,12 @@
 
 #feed-left-name {
     margin-bottom: 15px;
-    margin-left: 22px;
     font-weight: bold;
 }
 
 #feed-left-explore {
     margin: 20px 0 20px 0;
-    color: #616770;
+    // color: #616770;
     font-weight: bold;
 }
 

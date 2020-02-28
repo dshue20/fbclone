@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import PostIndexContainer from '../posts/post_index_container';
-import { faNewspaper, faVideo, faUsers, faFlag, faCoins, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
+import { faNewspaper, faGlobe, faFile, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from './header';
 
@@ -29,15 +29,12 @@ export default class Feed extends React.Component {
                     <section id="feed-left">
                         <p className="feed-left-text" id="feed-left-name">{this.props.current_user.fname} {this.props.current_user.lname}</p>
                         <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="news-icon" icon={faNewspaper} />News Feed</a></div>
-                        <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="messenger-icon" icon={faFacebookMessenger} />Messenger</a></div>
-                        <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="video-icon" icon={faVideo} />Watch</a></div>
+                        <div className="feed-left-text"><Link to={`/users/${this.props.current_user.id}`}><FontAwesomeIcon className="feed-left-icon" id="user-icon" icon={faUser} />My Profile</Link></div>
                         <p className="feed-left-text" id="feed-left-explore">Explore</p>
-                        <div className="feed-left-text"><a href="#"><img className="fb-icon-left" id="feed-left-fb-icon" src={window.fb_icon2}/>Welcome</a></div>
-                        <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="groups-icon" icon={faUsers} />Groups</a></div>
-                        <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="pages-icon" icon={faFlag} />Pages</a></div>
-                        <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="fundraiser-icon" icon={faCoins} />Fundraisers</a></div>
-                        <div className="feed-left-text"><a href="#"><FontAwesomeIcon className="feed-left-icon" id="events-icon" icon={faCalendarAlt} />Events</a></div>
-                        <a id="feed-left-see-more" className="feed-left-text" href="#">See More...</a>
+                        <div className="feed-left-text"><a href="http://www.derekshue.com/"><FontAwesomeIcon className="feed-left-icon" id="portfolio-icon" icon={faGlobe} />Portfolio</a></div>
+                        <div className="feed-left-text"><a href="https://www.linkedin.com/in/derek-shue-641918177/"><FontAwesomeIcon className="feed-left-icon" id="linkedin-icon" icon={faLinkedin} />LinkedIn</a></div>
+                        <div className="feed-left-text"><a href="https://github.com/dshue20/fbclone"><FontAwesomeIcon className="feed-left-icon" icon={faGithub} />Github</a></div>
+                        <div className="feed-left-text"><a href="http://www.derekshue.com/images/Shue_Derek_Resume.pdf"><FontAwesomeIcon className="feed-left-icon" id="resume-icon" icon={faFile} />Résumé</a></div>
                     </section>
 
                     <section id="feed-center">
@@ -52,14 +49,15 @@ export default class Feed extends React.Component {
                                 <a href="#">Ruby</a>
                                 <a href="#">Rails</a>
                                 <br/>
-                                <a href="#">Java</a>
                                 <a href="#">Javascript</a>
                                 <a href="#">React</a>
                                 <a href="#">Redux</a>
+                                <a href="#">MongoDB</a>
                                 <br/>
                                 <a href="#">Python</a>
-                                <a href="#">C</a>
-                                <a href="#">C++</a>
+                                <a href="#">Express</a>
+                                <a href="#">Node.js</a>
+                                <a href="#">GraphQL</a>
                             </section>
                         </div>
                         <p id="feed-right-fb-c">Fakebook © 2019</p>
