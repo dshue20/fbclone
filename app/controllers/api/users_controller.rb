@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = User.fiind(params[:id])
+        @user = User.find(params[:id])
         render :show
     end
 

@@ -2497,7 +2497,7 @@ function (_React$Component) {
         className: "login-left-icon-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "login-left-icon",
-        src: "https://scontent-sjc3-1.xx.fbcdn.net/v/t39.2365-6/33137320_1687624661315903_5362007326045765632_n.png?_nc_cat=1&_nc_ohc=QSxCyz3mrSsAQkUyUktobIY2X_PB9VgkdFWc324c3kLcWRP0nSLpOsUoQ&_nc_ht=scontent-sjc3-1.xx&oh=8975a9550d54267243ef991b20a64cd9&oe=5E787E05"
+        src: window.find_more
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-left-icon-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -2930,10 +2930,6 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "user-bio-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ppic"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "add-friend"
-      }, "Add Picture")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-name-add-friend"
       }, user_name, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_friendships_friend_button_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         user: this.props.user,
@@ -49109,7 +49105,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
