@@ -134,7 +134,7 @@ export default class SignupForm extends React.Component {
                                 </div>
 
                                 <div className="login-left-icon-section">
-                                <img className="login-left-icon" src={window.find_more}></img>
+                                <img id="find-more" className="login-left-icon" src={window.find_more}></img>
                                     <div className="login-left-icon-text">
                                         <span className="login-left-text-dark">Find more </span><span className="login-left-text-light">of what you're looking for with Facebook Search.</span>
                                     </div>

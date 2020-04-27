@@ -2496,6 +2496,7 @@ function (_React$Component) {
       }, "in your life on your Timeline."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-left-icon-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "find-more",
         className: "login-left-icon",
         src: window.find_more
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
