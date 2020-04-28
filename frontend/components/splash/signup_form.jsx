@@ -67,15 +67,29 @@ export default class SignupForm extends React.Component {
     }
 
     renderErrors() {
-        return(
-            this.props.errors.length != 0 ? 
-                <ul id="login-errors">
+        if (this.props.errors.length == 0){
+            return <ul></ul>
+        } else if (this.props.errors.length == 1){
+            return (
+                <ul className="login-errors">
                     {Object.keys(this.props.errors).map(
                         (error, idx) => <li key={idx}>{this.props.errors[error]}</li>)}
                 </ul>
-                :
-                <ul></ul>
-        );
+            )
+        } else {
+            return (
+                <ul id="long-login-errors">
+                    {Object.keys(this.props.errors).map(
+                        (error, idx) => (
+                            <li key={idx}>
+                                {this.props.errors[error]}
+                                <br></br>
+                            </li>
+                        ))}
+                </ul>
+            )
+        }     
+        // return (<ul></ul>)
       }
 
     render() {

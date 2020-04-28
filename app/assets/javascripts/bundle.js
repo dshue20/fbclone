@@ -2424,13 +2424,26 @@ function (_React$Component) {
     value: function renderErrors() {
       var _this3 = this;
 
-      return this.props.errors.length != 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        id: "login-errors"
-      }, Object.keys(this.props.errors).map(function (error, idx) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: idx
-        }, _this3.props.errors[error]);
-      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null);
+      if (this.props.errors.length == 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null);
+      } else if (this.props.errors.length == 1) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "login-errors"
+        }, Object.keys(this.props.errors).map(function (error, idx) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: idx
+          }, _this3.props.errors[error]);
+        }));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          id: "long-login-errors"
+        }, Object.keys(this.props.errors).map(function (error, idx) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: idx
+          }, _this3.props.errors[error], react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+        }));
+      } // return (<ul></ul>)
+
     }
   }, {
     key: "render",
