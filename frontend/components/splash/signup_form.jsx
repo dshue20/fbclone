@@ -134,14 +134,14 @@ export default class SignupForm extends React.Component {
                             
                             <section id="login-left-icons">
                                 <div className="login-left-icon-section">
-                                    <img className="login-left-icon" src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.2365-6/32964924_188362901982436_5189181917978689536_n.png?_nc_cat=1&amp;_nc_ohc=P-30UxsWKjcAQkBW4ROHfAe9UsprQkYxnFntTXdGpQjK5PYc-5ricTXzA&amp;_nc_ht=scontent-sjc3-1.xx&amp;oh=d05f98d60fad5110d7c44926ec1cbfb8&amp;oe=5EAC13A3"></img>
+                                    <img className="login-left-icon" src={window.see_photos}></img>
                                     <div className="login-left-icon-text">
                                         <span className="login-left-text-dark">See photos and updates </span><span className="login-left-text-light">from friends in News Feed.</span>
                                     </div>
                                 </div>
 
                                 <div className="login-left-icon-section">
-                                    <img className="login-left-icon" src="https://scontent-sjc3-1.xx.fbcdn.net/v/t39.2365-6/32967637_1400301410075884_2994305350271762432_n.png?_nc_cat=1&amp;_nc_ohc=55MOE790WrgAQlzSXIZm0hB0Kqy0a3gilPB_HxMgNeAhcBlm-f3hKIf8Q&amp;_nc_ht=scontent-sjc3-1.xx&amp;oh=78490146ecc39b1c732d480cf30685b1&amp;oe=5EAF00B0"></img>
+                                    <img className="login-left-icon" src={window.share}></img>
                                     <div className="login-left-icon-text">
                                         <span className="login-left-text-dark">Share what's new </span><span className="login-left-text-light">in your life on your Timeline.</span>
                                     </div>
